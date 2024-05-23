@@ -7,7 +7,7 @@ environ.Env.read_env()  # Read .env file
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY', default='your-default-secret-key')
 
 DEBUG = env.bool('DEBUG', default=True)
 
@@ -71,6 +71,10 @@ except environ.ImproperlyConfigured:
         }
     }
 
+# Override with DATABASE_URL if it exists
+if env('DATABASE_URL', default=None):
+    DATABASES['default'] = env.db()
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,3 +122,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTH_USER_MODEL = 'profiles.CustomUser'
