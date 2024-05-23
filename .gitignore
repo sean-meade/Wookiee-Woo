@@ -39,7 +39,7 @@ npm-debug.log
 /output/
 /cache/
 
-
+.history
 
 .direnv
 .envrc

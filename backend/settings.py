@@ -1,14 +1,13 @@
+import os
 from pathlib import Path
 import environ
 
-
 env = environ.Env()
-environ.Env.read_env()  
+environ.Env.read_env()  # Read .env file
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY', default='django-insecure-%9j!w8s4-d1m3-ud9b0iy!5$m2xj*vhy861yy54hrpiu(w-_5+')
-
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = env.bool('DEBUG', default=True)
 
@@ -23,9 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'profiles',
-    'matchmaking',
-    'favorites',
+    'backend.profiles',
+    'backend.matchmaking',
+    'backend.favorites',
 ]
 
 MIDDLEWARE = [
@@ -44,7 +43,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,9 +58,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-DATABASES = {
-    'default': env.db(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
-}
+# Database configuration
+try:
+    DATABASES = {
+        'default': env.db(),
+    }
+except environ.ImproperlyConfigured:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,14 +109,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-CORS_ALLOW_ALL_ORIGINS = True  
+CORS_ALLOW_ALL_ORIGINS = True

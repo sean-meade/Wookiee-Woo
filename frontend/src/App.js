@@ -27,6 +27,7 @@ function App() {
             <li>Configured Django to use django-environ to read environment variables from a .env file.</li>
             <li>Set up the settings.py to use PostgreSQL via the DATABASE_URL environment variable, with a fallback to SQLite for local development.</li>
             <li>Added code to settings.py to read the .env file and configure database settings accordingly.</li>
+            <li>Added a fallback to SQLite in case of missing or faulty database details.</li>
           </ul>
 
           <h3 className="mt-4">Django Configuration</h3>
@@ -49,8 +50,8 @@ function App() {
 
           <h3 className="mt-4">Frontend Configuration</h3>
           <ul>
-            <li>This is the landing page:</li>
-            <li>Added a folder for pages (sublinks) and a components folder to the frontend.</li>
+            <li>You are currently reading the landingpage in the frontend-folder defined in app.js</li>
+            <li>Added a folder for pages and a components folder to the frontend.</li>
           </ul>
           
           <h3 className="mt-4">Bootstrap Installation</h3>
