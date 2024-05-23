@@ -1,17 +1,20 @@
 import os
 from pathlib import Path
-import environ
 
-env = environ.Env()
-environ.Env.read_env()  # Read .env file
+import dj_database_url
+
+if os.path.exists("env.py"):
+    import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+HOSTED_SITE = os.environ.get('HOSTED_SITE')
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
-DEBUG = env.bool('DEBUG', default=True)
+DEBUG = bool(os.environ.get('DEBUG', False))
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,12 +61,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Database configuration
-try:
+if HOSTED_SITE:
+    # Database
     DATABASES = {
-        'default': env.db(),
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-except environ.ImproperlyConfigured:
+
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

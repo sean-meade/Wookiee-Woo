@@ -29,13 +29,13 @@ To set up the project for development, follow these steps:
     pip install -r requirements.txt
     ```
 
-4. **Create a `.env` File in the Root Directory:**
+4. **Create a `env.py` File in the Root Directory:**
 
     ```plaintext
     DEBUG=True
-    SECRET_KEY=your-very-secret-key
-    DATABASE_URL=postgres://username:password@hostname/databasename
-    ALLOWED_HOSTS=localhost,127.0.0.1
+    SECRET_KEY="your-very-secret-key"
+    DATABASE_URL="postgres://username:password@hostname/databasename"
+    ALLOWED_HOSTS="'localhost', '127.0.0.1'"
     ```
 
 5. **Apply Migrations:**
