@@ -34,7 +34,7 @@ To set up the project for development, follow these steps:
     ```plaintext
     DEBUG=True
     SECRET_KEY=your-very-secret-key
-    DATABASE_URL=postgres://username:password@hostname/databasename
+    DATABASE_URL=postgres://username:password@hostname/databasename #Dont add this line if you want to default to SQlite
     ALLOWED_HOSTS=localhost,127.0.0.1
     ```
 
@@ -62,7 +62,13 @@ To set up the project for development, follow these steps:
     npm install
     ```
 
-9. **Run the Frontend Server:**
+9. **Build the Frontend:**
+
+    ```bash
+    npm run build
+    ```
+
+10. **Run the Frontend Server:**
 
     ```bash
     npm start
