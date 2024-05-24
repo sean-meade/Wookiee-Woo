@@ -43,7 +43,7 @@ class CustomUser(AbstractUser):
     looking_for = models.IntegerField(choices=LOOKING_FOR, default=3)
     profile_icon = models.CharField(max_length=20, choices=ICON_CHOICES, default="icon1")
     bio = models.TextField(max_length=500, null=True, blank=True)
-    suggestions = models.ManyToManyField('self', symmetrical=False, related_name='suggested_by')
+    suggestions = models.ManyToManyField('self', symmetrical=True, related_name='suggested_by')
     matches = models.ManyToManyField('self', symmetrical=False, related_name='matched_by')
     facebook = models.CharField(max_length=30, blank=True)
     instagram = models.CharField(max_length=30, blank=True)
