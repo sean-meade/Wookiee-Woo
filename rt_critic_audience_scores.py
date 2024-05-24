@@ -32,6 +32,8 @@ triples = [line.split(', ') for line in lines]
 
 def norm_title(string:str) -> str:
 	string = string.replace('-', ' ')
+	if ':' in string:
+		string = string.split(':')[1]
 	string = string.strip()
 	if 'The '== string[0:4]:
 		string = string[4:]
