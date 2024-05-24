@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profiles from './pages/ProfilePage/Profile';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
               </div>
             </div>
           } />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </Router>
