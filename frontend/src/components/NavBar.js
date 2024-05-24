@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 //import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
@@ -9,7 +9,7 @@ import styles from "../styles/NavBar.module.css";
 const NavBar = () => {
     // authentication as useState is temporary:
     // eslint-disable-next-line
-    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
     const authenticatedOptions = (<>
@@ -18,13 +18,13 @@ const NavBar = () => {
         className={styles.NavBarButton}
         >
             My profile
-        </NavLink>
+        </NavLink><br/><br/>
         <NavLink
         to="/sign-out"
         className={styles.NavBarButton}
         >
             Sign out
-        </NavLink>
+        </NavLink><br/><br/>
     </>)
 
     const unauthenticatedOptions = (<>
@@ -33,13 +33,13 @@ const NavBar = () => {
         className={styles.NavBarButton}
         >
             Sign in
-        </NavLink>
+        </NavLink><br/><br/>
         <NavLink
         to="/sign-up"
         className={styles.NavBarButton}
         >
             Sign up
-        </NavLink>
+        </NavLink><br/><br/>
     </>)
 
     return(<>
@@ -60,19 +60,26 @@ const NavBar = () => {
                 id="basic-navbar-nav"
                 >
 
+
+                    <Nav className={styles.NavBarDirection}>
+                        <ul>
+                        <br/>
                         <NavLink
                         to="/profiles"
                         className={styles.NavBarButton}
                         >
                             profiles
-                        </NavLink>
+                        </NavLink><br/><br/>
                         <NavLink
                         to="/"
                         className={styles.NavBarButton}
                         >
                             home
-                        </NavLink>
+                        </NavLink><br/><br/>
                         {isAuthenticated ? (authenticatedOptions) : (unauthenticatedOptions)}
+                        </ul>
+                    </Nav>
+
 
                 </Navbar.Collapse>
 
