@@ -57,7 +57,6 @@ const NavBar = () => {
                 />
                 <Navbar.Collapse
                 className={styles.LogoToCollapseDirection}
-                id="basic-navbar-nav"
                 >
 
 
