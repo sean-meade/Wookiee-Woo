@@ -4,7 +4,10 @@ from .models import CustomUser, UserProfile
 
 @receiver(post_save, sender=CustomUser)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Signal to create or update a UserProfile when a CustomUser is created or updated.
+    """
     if created:
         UserProfile.objects.create(user=instance)
     else:
-        instance.userprofile.save()
+        instance.profile.save()

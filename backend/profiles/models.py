@@ -7,7 +7,7 @@ GENDERS = (
     (2, "Genderfluid"),
     (3, "Man"),
     (4, "Prefer not to answer"),
-    (5, "Other")
+    (5, "Other"),
 )
 
 LOOKING_FOR = (
@@ -15,16 +15,14 @@ LOOKING_FOR = (
     (1, "Men and Women"),
     (2, "Neither"),
     (3, "All/Any"),
-    (4, "Men")
+    (4, "Men"),
 )
-
 
 ALIGNMENT = (
     (0, "Light Side"),
     (1, "Force Neutral"),
-    (2, "Dark Side/Sith")
+    (2, "Dark Side/Sith"),
 )
-
 
 ICON_CHOICES = (
     ("icon1", "Icon 1"),
@@ -39,18 +37,22 @@ ICON_CHOICES = (
     ("icon10", "Icon 10"),
 )
 
-# Create your models here.
-class UserWW(AbstractUser):
+class CustomUser(AbstractUser):
     force_alignment = models.IntegerField(choices=ALIGNMENT, default=1)
     gender = models.IntegerField(choices=GENDERS, default=4)
     looking_for = models.IntegerField(choices=LOOKING_FOR, default=3)
     profile_icon = models.CharField(max_length=20, choices=ICON_CHOICES, default="icon1")
     bio = models.TextField(max_length=500, null=True, blank=True)
-    suggestions = models.ManyToManyField('self', related_name='suggested_by', blank=True)
-    matches = models.ManyToManyField('self', related_name='matched_by', blank=True)
     facebook = models.CharField(max_length=30, blank=True)
     instagram = models.CharField(max_length=30, blank=True)
     twitter = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
-        return self.username
+        return str(self.username)
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='profile')
+    bio = models.TextField(max_length=500, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
