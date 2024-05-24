@@ -1,0 +1,19 @@
+.NavBarLogo {
+    width: 100px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    color: rgb(50, 50, 50);
+    text-decoration: none;
+    border: 2px solid rgb(50, 50, 50);
+}
+
+.NavBarButton {
+    width: 100px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    color: rgb(50, 50, 50);
+    text-decoration: none;
+    border: 2px solid rgb(50, 50, 50);
+}
