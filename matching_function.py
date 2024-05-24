@@ -18,9 +18,10 @@ def normalize_weights(weights: dict, factor: float=1.0) -> dict:
     weight is 1 and all others are relative to it. factor is included as a 
     parameter as you may want the max value to be more heavily weighted.
     """
-    # does this function do what Sean thinks it does
+    # I changed the scaling factor so that now the max wieght will be
+    # normalized to have value factor.
     max_weight = max([value for value in weights.values()])
-    scaling_factor = max_weight*factor
+    scaling_factor = max_weight/factor
     return {key:value/scaling_factor for key, value in weights.items()}
 
 def convert_to_percentage(weights: dict) -> dict:
