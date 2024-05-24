@@ -58,7 +58,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Database configuration
 try:
     DATABASES = {
         'default': env.db(),
@@ -70,6 +69,7 @@ except environ.ImproperlyConfigured:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 
 # Override with DATABASE_URL if it exists
 if env('DATABASE_URL', default=None):
