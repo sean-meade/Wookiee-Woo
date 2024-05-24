@@ -2,26 +2,39 @@ from .rt_critic_audience_scores import RT_critic_audience
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
 
-# This dictionary contains weights for the different fields.
-# These weights are adjustable and subject to change.
-# There is maybe a more efficient way to store these things.
-keys = ['a_new_hope', 'empire_strikes_back', 'return_of_the_jedi',
-    'phantom_menace', 'attack_of_the_clones', 'revenge_of_the_sith',
-    'force_awakens', 'last_jedi', 'rise_of_skywalker', 'rogue_one', 'solo',
-    'mandalorian', 'book_of_boba_fett', 'obi_wan_kenobi', 'andor', 'ahsoka',
-    'clone_wars', 'rebels', 'resistance', 'bad_batch', 'visions',
-    'tales_of_the_empire', 'tales_of_the_jedi']
+# called films but includes TV series as well
+films = RT_critic_audience.keys()
 
-even_weight = {film: 1 for film in keys}
+# Hard coded weights to start with
+even_weight = {film: 1 for film in films}
+controversy_weight = {film:abs(RT_critic_audience[film][0]-RT_critic_audience[film][1]) for film in films}
+critic_weight = {film:RT_critic_audience[film][0] for film in films}
+audience_weight = {film:RT_critic_audience[film][1] for film in films}
 
-# I have not given full type hints for this yet because we don't yet
-# have methods attached to the models.
-def distance(u1:dict, u2:dict, weights: dict=even_weight) -> int:
+def normalize_weights(weights: dict, factor: float=1.0) -> dict:
+    """
+    With the default of factor=1, this rescales the weights so that the max 
+    weight is 1 and all others are relative to it. factor is included as a 
+    parameter as you may want the max value to be more heavily weighted.
+    """
+    max_weight = max([value for value in weights.values()])
+    scaling_factor = max_weight*factor
+    return {key:value/scaling_factor for key, value in weights.items()}
+
+def convert_to_percentage(weights: dict) -> dict:
+    """
+    Scales a dictionary so that all weights are between 0 and 1. This may be
+    desirable, it may not be.
+    """
+    return {key: value/100 for key, value in weights.items()}
+
+# some preprocessing may need to be done to produce u1 and u2 from
+# users/profiles.
+def distance(u1: dict, u2: dict, weights: dict=even_weight) -> int:
     '''
-    u1 and u2 are dictionaries obtained from the user/profile model. They
-    contain the survey result data. weight is a dictionary that contains the
-    weights necessary to compute the weighted sum. adjusting an individual
-    value will scale the importance of that film.
+    u1 and u2 are dictionaries containing the survey result data. weight is a 
+    dictionary that contains the weights necessary to compute the weighted
+    sum. adjusting an individual value will scale the importance of that film.
     '''
     overlap = {film: u1[film] and u2[film] for film in keys}
     sum = 0
