@@ -1,9 +1,17 @@
+from .rt_critic_audience_scores import RT_critic_audience
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
 
 # This dictionary contains weights for the different fields.
 # These weights are adjustable and subject to change.
 # There is maybe a more efficient way to store these things.
+keys = ['a_new_hope', 'empire_strikes_back', 'return_of_the_jedi',
+    'phantom_menace', 'attack_of_the_clones', 'revenge_of_the_sith',
+    'force_awakens', 'last_jedi', 'rise_of_skywalker', 'rogue_one',
+    'solo', 'mandalorian', 'book_of_boba_fett', 'obi_wan_kenobi',
+    'andor', 'ahsoka', 'clone_wars', 'rebels', 'resistance',
+    'bad_batch', 'visions', 'tales_of_the_empire', 'tales_of_the_jedi']
+
 even_weight = {
     'a_new_hope':1,
     'empire_strikes_back':1,
