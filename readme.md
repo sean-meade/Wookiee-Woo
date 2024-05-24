@@ -126,3 +126,31 @@ To prepare and serve the project for production, follow these steps:
     ```
 
     Make sure the `build` directory of your React app is inside the `frontend` directory.
+
+Wireframes by Alma Isaksson
+
+## Color Scheme
+
+In designing the color palette for this project, a tertiary color wheel analysis approach was utilized. This method involves selecting a primary color, then finding secondary and tertiary colors that complement and enhance the overall aesthetic. Here's a breakdown of how the colors were chosen and their roles in the design:
+
+### Colors Used
+
+- **Primary Color: #cf4f50 (Red)**
+  - This vibrant red serves as the main highlight color, providing energy and focus to key elements.
+  
+- **Secondary Color: #243145 (Blue)**
+  - The deep blue acts as a strong, stable base color, suitable for backgrounds, text, and other primary elements.
+  
+- **Tertiary Color: #ecc6c6 (Light Pink)**
+  - A soft pastel pink was chosen as a tertiary color to create harmony and add a gentle, complementary touch to the palette.
+  
+- **Neutral Color: #f5f5f5 (Light Gray)**
+  - Light gray is used as a neutral background to keep the design clean and unobtrusive, allowing other colors to stand out.
+  
+- **Complementary Color: #ff9800 (Orange)**
+  - Orange was selected as a complementary color to the blue, adding warmth and creating a striking contrast when needed.
+  
+- **Analogous Color: #ff6f61 (Coral)**
+  - Coral, an analogous color to the primary red, provides additional variety and can be used for accents to maintain visual cohesion.
+
+  ![Color Palette](https://res.cloudinary.com/dgvipn16a/image/upload/v1716555532/colorscheme_f1exrx.png)

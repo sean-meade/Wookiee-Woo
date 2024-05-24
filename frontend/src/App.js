@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Profiles from './pages/ProfilePage/Profile';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -25,9 +26,16 @@ function App() {
                 <li>...and more</li>
               </ul>
             </div>
+<<<<<<< navbar
           </div>
         </div>} />
       </Routes>
+=======
+          } />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
+>>>>>>> main
     </Router>
   );
 }

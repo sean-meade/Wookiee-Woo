@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #cf4f50; /* Red */
+    --secondary-color: #243145; /* Blue */
+    --tertiary-color: #ecc6c6; /* Light Pink */
+    --neutral-color: #f5f5f5; /* Light Gray */
+    --complementary-color: #ff9800; /* Orange */
+    --analogous-color: #ff6f61; /* Coral */
+}
