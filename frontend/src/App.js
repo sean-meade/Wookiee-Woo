@@ -11,31 +11,27 @@ function App() {
     <Router>
       <Routes>
         <Route path="/profiles" element={<Profiles />} />
-        <Route path="/" element={<div>
-          <div className="App-container">
-            <div className="Nav-bar-container">
-              <NavBar />
+        <Route path="/" element={
+          <div>
+            <div className="App-container">
+              <div className="Nav-bar-container">
+                <NavBar />
+              </div>
+              <div className="Main-view-container">
+                <p>This is a placeholder text for Main view container. This container will render:</p>
+                <ul>
+                  <li>landing page unauthenticated</li>
+                  <li>landing page authenticated</li>
+                  <li>authentication sign in, out, up</li>
+                  <li>edit profile</li>
+                  <li>...and more</li>
+                </ul>
+              </div>
             </div>
-            <div className="Main-view-container">
-              <p>This is a placeholder text for Main view container. This containter will render:</p>
-              <ul>
-                <li>landing page unauthenticated</li>
-                <li>landing page authenticated</li>
-                <li>authentication sign in, out, up</li>
-                <li>edit profile</li>
-                <li>...and more</li>
-              </ul>
-            </div>
-<<<<<<< navbar
           </div>
-        </div>} />
+        } />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-=======
-          } />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </div>
->>>>>>> main
     </Router>
   );
 }
