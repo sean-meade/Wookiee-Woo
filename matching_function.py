@@ -1,4 +1,5 @@
 from .rt_critic_audience_scores import RT_critic_audience
+from math import floor
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
 
@@ -43,13 +44,18 @@ def distance(u1: dict, u2: dict, weights: dict=even_weight) -> int:
             sum += weights[film]*(u1[film]-u2[film])**2
     return sum
 
-user_zero = {film:0 for film in even_weight.keys()}
+user_zero = {film: 0 for film in even_weight.keys()}
 # The value can be changed depending on how we make the form.
-user_max = {film:10 for film in even_weight.keys()}
+user_max = {film: 10 for film in even_weight.keys()}
 
 def max_distance(weights) -> int:
     return distance(user_zero, user_max, weights)
 
 def percentage_match(u1: dict, u2: dict, weights: dict=even_weight) -> int:
     m = max_distance(weights)
-    return (m-distance(u1,u2,weights))/m
+    return floor((m-distance(u1,u2,weights))/m*100)
+
+def is_match(u1: dict, u2: dict, weights: dict=even_weight, threshhold:int=65) -> bool:
+    if percentage_match(u1,u2,weights) >= threshhold:
+        return True
+    return False
