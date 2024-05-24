@@ -55,6 +55,7 @@
   margin: 20px;
   border: 1px solid rgb(50, 50, 50);
   height: auto;
+  margin-right: 0px;
   width: 20vh;
   height: auto;
 }
@@ -71,6 +72,7 @@
   .Nav-bar-container {
     padding: 10px;
     margin: 20px;
+    margin-bottom: 0px;
     width: auto;
     height: 10vh;
   }
