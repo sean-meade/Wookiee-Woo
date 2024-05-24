@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Non-Cave Sean: Here are my attempts at writing models for the three tables that I came up with
-
-GENDERS=((0,"Woman"),(1,"Nonbinary"),(2,"Genderfluid"),(3,"Man"),(4,"Prefer not to answer"))
-LOOKING_FOR=((0,"Women"),(1,"Men and Women"),(2,"Neither"),(3,"All"),(4,"Men"))
+# Some of these options I am open to removing, others I am not
+GENDERS=((0,"Woman"),(1,"Nonbinary"),(2,"Genderfluid"),(3,"Man"),(4,"Prefer not to answer"),(5,"Other"))
+LOOKING_FOR=((0,"Women"),(1,"Men and Women"),(2,"Neither"),(3,"All/Any"),(4,"Men"))
+# ALLIGNMENT is more for fun since it is star wars after all
 ALLIGNMENT=((0,"Light Side"),(1,"Force Neutral"),(2,"Dark Side/Sith"))
 # Create your models here.
 class UserWW(User):
