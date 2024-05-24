@@ -44,3 +44,10 @@ npm-debug.log
 .direnv
 .envrc
 .tool-versions
+
+ 
+# .gitignore Anwar
+.env
+__pycache__/
+*.pyc
+/static/

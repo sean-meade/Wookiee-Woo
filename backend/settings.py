@@ -2,8 +2,9 @@ import os
 from pathlib import Path
 import environ
 
+# Initialize environment variables
 env = environ.Env()
-environ.Env.read_env()  # Read .env file
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,10 +41,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,8 +118,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
-]
+    os.path.join(BASE_DIR, 'frontend', 'build', 'static')
+] if os.path.exists(os.path.join(BASE_DIR, 'frontend', 'build', 'static')) else []
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
