@@ -14,6 +14,7 @@ class UserWW(User):
     gender = models.IntegerField(choices=GENDERS, default=4)
     looking_for = models.IntegerField(choices=LOOKING_FOR, default=3)
     profile_image = models.ImageField()
+    bio = models.TextField(max_length=500, nullable=True)
     suggestions = models.ManyToManyField(UserWW)
     matches = models.ManyToManyField(UserWW)
     facebook = models.CharField(max_length=30)
