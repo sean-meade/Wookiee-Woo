@@ -1,0 +1,36 @@
+.LogoToCollapseDirection {
+    flex-direction: column;
+}
+@media (max-width: 768px) {
+    .LogoToCollapseDirection {
+      flex-direction: row;
+  }
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.NavBarDirection {
+    text-align: right;
+    flex-direction: column;
+}
+
+.NavBarLogo, .NavBarButton {
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    color: rgb(50, 50, 50);
+    background-color: white;
+    text-decoration: none;
+    border: 2px solid rgb(50, 50, 50);
+    display: inline-block;
+}
+@media (max-width: 768px) {
+    .NavBarLogo {
+        margin: 0px;
+    }
+  }

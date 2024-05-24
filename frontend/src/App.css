@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* App, Main-view, Nav-bar container Media query for large screens (desktop) */
+.App-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.Main-view-container {
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid rgb(50, 50, 50);
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.Nav-bar-container {
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid rgb(50, 50, 50);
+  height: auto;
+  margin-right: 0px;
+  width: 20vh;
+  height: auto;
+}
+
+/* App, Main-view, Nav-bar container Media query for small screens (phones) */
+@media (max-width: 768px) {
+  .App-container {
+    flex-direction: column;
+  }
+  .Main-view-container {
+    padding: 10px;
+    margin: 20px;
+  }
+  .Nav-bar-container {
+    padding: 10px;
+    margin: 20px;
+    margin-bottom: 0px;
+    width: auto;
+    height: 10vh;
+  }
+}
