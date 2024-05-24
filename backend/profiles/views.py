@@ -1,14 +1,13 @@
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
-from .models import UserProfile
-from .serializers import UserProfileSerializer
+from rest_framework import viewsets
+from django.contrib.auth import get_user_model
+from .serializers import CustomUserSerializer
 
-class UserProfileListCreateView(generics.ListCreateAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
-    permission_classes = [IsAuthenticated]
+# Get the custom user model
+CustomUser = get_user_model()
 
-class UserProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
-    permission_classes = [IsAuthenticated]
+class CustomUserViewSet(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing custom user instances.
+    """
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer

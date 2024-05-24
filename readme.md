@@ -73,6 +73,17 @@ To set up the project for development, follow these steps:
     ```bash
     npm start
     ```
+## Seeding Demo Users
+
+This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
+
+### Seeding Demo Users
+
+To seed the database with demo users, run the following command:
+
+```bash
+python manage.py seed_demo_users
+
 
 ### Production Build and Deployment
 
@@ -127,6 +138,9 @@ To prepare and serve the project for production, follow these steps:
 
     Make sure the `build` directory of your React app is inside the `frontend` directory.
 
+<<<<<<< 14-add-authentification-and-elaborated-model-and-view-logic-to-profiles---backend
+Wireframes by Alma Isaksson
+=======
 Wireframes by Alma Isaksson
 
 ## Color Scheme
@@ -154,3 +168,4 @@ In designing the color palette for this project, a tertiary color wheel analysis
   - Coral, an analogous color to the primary red, provides additional variety and can be used for accents to maintain visual cohesion.
 
   ![Color Palette](https://res.cloudinary.com/dgvipn16a/image/upload/v1716555532/colorscheme_f1exrx.png)
+>>>>>>> main
