@@ -73,6 +73,17 @@ To set up the project for development, follow these steps:
     ```bash
     npm start
     ```
+## Seeding Demo Users
+
+This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
+
+### Seeding Demo Users
+
+To seed the database with demo users, run the following command:
+
+```bash
+python manage.py seed_demo_users
+
 
 ### Production Build and Deployment
 
