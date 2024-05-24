@@ -126,3 +126,5 @@ To prepare and serve the project for production, follow these steps:
     ```
 
     Make sure the `build` directory of your React app is inside the `frontend` directory.
+
+Wireframes by Alma Isaksson
