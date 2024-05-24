@@ -49,13 +49,24 @@ user_zero = {film: 0 for film in even_weight.keys()}
 user_max = {film: 10 for film in even_weight.keys()}
 
 def max_distance(weights) -> int:
+    """
+    Computes maximum distance between two users for a given collection of
+    weights.
+    """
     return distance(user_zero, user_max, weights)
 
 def percentage_match(u1: dict, u2: dict, weights: dict=even_weight) -> int:
+    """
+    Computes the percentage match based on the above distance function.
+    """
     m = max_distance(weights)
     return floor((m-distance(u1,u2,weights))/m*100)
 
 def is_match(u1: dict, u2: dict, weights: dict=even_weight, threshhold:int=65) -> bool:
+    """
+    threshhold is the cutoff for determining if a pair of users should be
+    matched.
+    """
     if percentage_match(u1,u2,weights) >= threshhold:
         return True
     return False
