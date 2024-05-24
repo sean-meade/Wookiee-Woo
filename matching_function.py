@@ -32,12 +32,27 @@ even_weight = {
 
 # I have not given full type hints for this yet because we don't yet
 # have methods attached to the models.
-def distance(user_1,user_2,weight:dict=even_weight) -> int:
-    # these should be a dictionary or named tuple
-    u1=user_1.formatted_results
-    u2=user_2.formatted_results
+def distance(u1:dict, u2:dict, weights: dict=even_weight) -> int:
+    '''
+    u1 and u2 are dictionaries obtained from the user/profile model. They
+    contain the survey result data. weight is a dictionary that contains the
+    weights necessary to compute the weighted sum. adjusting an individual
+    value will scale the importance of that film.
+    '''
+    overlap = {film: u1[film] and u2[film] for film in weights}
     sum = 0
-    for film in u1.keys():
-        if u1[film] and u2[film]:
-            sum += weight[film]*(u1[film]-u2[film])**2
+    for film, value in overlap.items():
+        if value:
+            sum += weights[film]*(u1[film]-u2[film])**2
     return sum
+
+user_zero = {film:0 for film in even_weight.keys()}
+# The value can be changed depending on how we make the form.
+user_max = {film:10 for film in even_weight.keys()}
+
+def max_distance(weights) -> int:
+    return distance(user_zero, user_max, weights)
+
+def percentage_match(u1: dict, u2: dict, weights: dict=even_weight) -> int:
+    m = max_distance(weights)
+    return (m-distance(u1,u2,weights))/m
