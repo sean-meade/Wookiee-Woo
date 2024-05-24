@@ -1,0 +1,28 @@
+.container {
+    background-color: #243145 ; 
+    color: #ecc6c6 ; 
+    text-align: center;
+    padding: 50px;
+  }
+
+.heading {
+    font-size: 100px;
+    color: #cf4f50;
+}
+
+.paragraph {
+    color: #ecc6c6 ;
+}
+
+.link {
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #ff6f61 ;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.link:hover {
+    background-color: #f92d1b ;
+}
