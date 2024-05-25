@@ -44,7 +44,7 @@
   flex-direction: row;
 }
 .Main-view-container {
-  padding: 10px;
+  padding: 50px;
   margin: 20px;
   border: 2px solid var(--tertiary-color);
   flex-grow: 1;

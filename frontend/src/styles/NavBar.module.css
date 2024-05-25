@@ -29,7 +29,7 @@ ul {
     transform: skew(-3deg);
 }
 
- .NavBarButton {
+.NavBarButton {
     width: 100px;
     height: 60px;
     padding: 10px;
@@ -41,6 +41,10 @@ ul {
     border: 2px solid var(--tertiary-color);
     display: inline-block;
     transform: skew(-3deg);
+}
+.NavBarButton:hover, .Active {
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
 }
 
 .NavBarLogo {

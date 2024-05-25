@@ -17,12 +17,14 @@ const NavBar = () => {
         <NavLink
         to="/profiles"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             My profile
         </NavLink><br/><br/>
         <NavLink
         to="/sign-out"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             Sign out
         </NavLink><br/><br/>
@@ -32,12 +34,14 @@ const NavBar = () => {
         <NavLink
         to="/sign-in"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             Sign in
         </NavLink><br/><br/>
         <NavLink
         to="/sign-up"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             Sign up
         </NavLink><br/><br/>
@@ -70,12 +74,14 @@ const NavBar = () => {
                         <NavLink
                         to="/profiles"
                         className={styles.NavBarButton}
+                        activeClassName={styles.Active}
                         >
                             profiles
                         </NavLink><br/><br/>
                         <NavLink
                         to="/"
                         className={styles.NavBarButton}
+                        activeClassName={styles.Active}
                         >
                             home
                         </NavLink><br/><br/>
