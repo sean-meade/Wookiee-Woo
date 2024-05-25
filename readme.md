@@ -40,41 +40,54 @@ To set up the project for development, follow these steps:
     ALLOWED_HOSTS=localhost,127.0.0.1
     ```
 
-5. **Apply Migrations:**
+5. **Create a `.env` File directly in the frontend:**
+
+    ```plaintext
+    REACT_APP_SITE_BASE_URL="http://127.0.0.1:8000/auth/"
+    ```
+
+6. **Apply Migrations:**
+
+    ```bash
+    python manage.py makemigrations
+    ```
+
+7. **Apply Migrations:**
 
     ```bash
     python manage.py migrate
     ```
 
-6. **Run the Development Server:**
+8. **Run the Development Server:**
 
     ```bash
     python manage.py runserver
     ```
 
-7. **Set Up Frontend:**
+9. **Set Up Frontend:**
 
     ```bash
     cd frontend
     ```
 
-8. **Install Frontend Dependencies:**
+10. **Install Frontend Dependencies:**
 
     ```bash
     npm install
     ```
 
-9. **Build the Frontend:**
+11. **Build the Frontend:**
 
     ```bash
     npm run build
     ```
 
-10. **Run the Frontend Server:**
+12. **Run the Frontend Server:**
 
     ```bash
     npm start
     ```
+
 ## Seeding Demo Users
 
 This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
