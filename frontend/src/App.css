@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
 }
 
 .App-link {
@@ -46,14 +46,14 @@
 .Main-view-container {
   padding: 10px;
   margin: 20px;
-  border: 1px solid rgb(50, 50, 50);
+  border: 2px solid var(--tertiary-color);
   flex-grow: 1;
   overflow-y: auto;
 }
 .Nav-bar-container {
   padding: 10px;
   margin: 20px;
-  border: 1px solid rgb(50, 50, 50);
+  border: 2px solid var(--tertiary-color);
   height: auto;
   margin-right: 0px;
   width: 20vh;
