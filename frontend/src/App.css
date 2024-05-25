@@ -67,7 +67,8 @@
     flex-direction: column;
   }
   .Main-view-container {
-    padding: 10px;
+    padding: 20px;
+    padding-top: 100px;
     margin: 20px;
   }
   .Nav-bar-container {
@@ -76,5 +77,6 @@
     margin-bottom: 0px;
     width: auto;
     height: 10vh;
+    border: none;
   }
 }
