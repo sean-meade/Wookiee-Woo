@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'backend.matchmaking',
 ]
 
+# So Django can handle multiple sites from one database
+SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
