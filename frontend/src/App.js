@@ -27,10 +27,11 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
-        <Route path="/sign-in" element={<p>Sign in page</p>} />
-        <Route path="/sign-up" element={<p>Sign up page</p>} />
+        <Route path="/sign-in" element={<Login />} />
+        <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-out" element={<p>Sign out page</p>} />
         <Route path="/profiles" element={<Profiles />} />
+        <Route path="/profiles/:id" element={<ProfileDetails />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
         </div>
