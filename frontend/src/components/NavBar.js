@@ -1,80 +1,106 @@
-import React, { useContext } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
-import styles from '../styles/NavBar.module.css';
+
+import React, { useState, useContext } from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import styles from "../styles/NavBar.module.css";
+import '../global.css';
+import logo from'../assets/wookie-doo-logo.png';
 import AuthContext from '../auth/authcontext';
+
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const handleLogout = () => {
-    logout();
-    setExpanded(false);
+// handleLogout was brought from main branch while resolving conflicts 
+    const handleLogout = () => {
+        logout();
+        setExpanded(false);
   };
+  
+    const authenticatedOptions = (<>
+        <NavLink
+        to="/profiles"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            My profile
+        </NavLink><br/><br/>
+        <NavLink
+        to="/sign-out"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Sign out
+        </NavLink><br/><br/>
+    </>)
 
-  const authenticatedOptions = (
-    <>
-      <NavLink to={`/profiles/${user ? user.id : ''}`} className={styles.NavBarButton}>
-        Profile Detail
-      </NavLink>
-      <br />
-      <br />
-      <NavLink to="/profiles" className={styles.NavBarButton}>
-        All Profiles
-      </NavLink>
-      <br />
-      <br />
-      <NavLink to="/" onClick={handleLogout} className={styles.NavBarButton}>
-        Sign Out
-      </NavLink>
-      <br />
-      <br />
-    </>
-  );
+    const unauthenticatedOptions = (<>
+        <NavLink
+        to="/sign-in"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Sign in
+        </NavLink><br/><br/>
+        <NavLink
+        to="/sign-up"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Sign up
+        </NavLink><br/><br/>
+    </>)
 
-  const unauthenticatedOptions = (
-    <>
-      <NavLink to="/login" className={styles.NavBarButton}>
-        Sign In
-      </NavLink>
-      <br />
-      <br />
-      <NavLink to="/register" className={styles.NavBarButton}>
-        Sign Up
-      </NavLink>
-      <br />
-      <br />
-    </>
-  );
+    return(<>
+        <Navbar
+        expanded={expanded}
+        className={styles.LogoToCollapseDirection}
+        expand="md"
+        >
+            <Navbar.Brand>
+                <img className={styles.NavBarLogo} src={logo} alt="logo"/>
+            </Navbar.Brand>
 
-  return (
-    <>
-      <Navbar expanded={expanded} className={styles.LogoToCollapseDirection} expand="md">
-        <Navbar.Brand className={styles.NavBarLogo}>Logo</Navbar.Brand>
+                <Navbar.Toggle
+                className={styles.CollapseButton}
+                ref={ref}
+                onClick={() => setExpanded(!expanded)}
+                aria-controls="basic-navbar-nav"
+                />
+                <Navbar.Collapse
+                className={styles.LogoToCollapseDirection}
+                >
 
-        <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className={styles.LogoToCollapseDirection}>
-          <Nav className={styles.NavBarDirection}>
-            <ul>
-              <NavLink to="/" className={styles.NavBarButton}>
-                Home
-              </NavLink>
-              <br />
-              <br />
-              <NavLink to="/profiles" className={styles.NavBarButton}>
-                Profiles
-              </NavLink>
-              <br />
-              <br />
-              {user ? authenticatedOptions : unauthenticatedOptions}
-            </ul>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </>
-  );
+
+                    <Nav className={styles.NavBarDirection}>
+                        <ul>
+                        <br/>
+                        <NavLink
+                        to="/profiles"
+                        className={styles.NavBarButton}
+                        activeClassName={styles.Active}
+                        >
+                            profiles
+                        </NavLink><br/><br/>
+                        <NavLink
+                        to="/"
+                        className={styles.NavBarButton}
+                        activeClassName={styles.Active}
+                        >
+                            home
+                        </NavLink><br/><br/>
+                        {isAuthenticated ? (authenticatedOptions) : (unauthenticatedOptions)}
+                        </ul>
+                    </Nav>
+
+
+                </Navbar.Collapse>
+
+        </Navbar>
+    </>);
 };
 
 export default NavBar;

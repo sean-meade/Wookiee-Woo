@@ -2,10 +2,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ProfileList from './pages/ProfileList/ProfileList';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
+import Profiles from './pages/ProfilePage/Profile';
 import PageNotFound from './pages/PageNotFound';
 import UserDetail from './components/UserDetail';
 import Login from './components/Login';
@@ -16,24 +18,24 @@ import Home from './components/Home';
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="App-container">
-          <div className="Nav-bar-container">
-            <NavBar />
-          </div>
-          <div className="Main-view-container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/users/:id" element={<UserDetail />} />
-              <Route path="/profiles" element={<ProfileList />} />
-              <Route path="/profiles/:id" element={<ProfileDetails />} />
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </div>
+    <Router>
+      <div className="App-container">
+        <div className="Nav-bar-container">
+          <NavBar />
         </div>
-      </Router>
+        <div className="Main-view-container">
+      <Routes>
+      <Route path="/" element={<Home />} />
+        <Route path="/" element={<p>Landing page</p>} />
+        <Route path="/sign-in" element={<p>Sign in page</p>} />
+        <Route path="/sign-up" element={<p>Sign up page</p>} />
+        <Route path="/sign-out" element={<p>Sign out page</p>} />
+        <Route path="/profiles" element={<Profiles />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+        </div>
+      </div>
+    </Router>
     </AuthProvider>
   );
 }
