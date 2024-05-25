@@ -14,6 +14,7 @@ JWT_SIGNING_KEY = env('JWT_SIGNING_KEY', default='your-default-jwt-signing-key')
 DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS.append("wookiewoo-backend-ff1b76fe3790.herokuapp.com")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
