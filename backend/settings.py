@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 import environ
-import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()  # Read .env file
@@ -124,5 +123,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = 'profiles.CustomUser'
-
-django_heroku.settings(locals())
