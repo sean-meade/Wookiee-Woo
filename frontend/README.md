@@ -1,3 +1,12 @@
+# Welcome to Wookie Woo: Where the Force is Strong with Love!
+Calling all Star Wars fans from galaxies near and far! Whether you're a Jedi, a Sith, or somewhere in between, Wookie Woo is your ultimate destination to find love among the stars. Here, you'll connect with people who share your passion for all things Star Wars.
+
+Tired of debating whether Han shot first with people who just don't get it? Dreaming of meeting someone who loves the original trilogy as much as you do? Or maybe you're a fan of the entire Star Wars universe and want a partner who appreciates every corner of the galaxy?
+
+Join us at Wookie Woo and embark on a journey where your Star Wars fandom leads the way. Our advanced onboarding survey helps you rank your preferences across the vast Star Wars media, ensuring you meet someone who truly understands your love for this epic saga.
+
+Sign up now, complete the survey, and may the Force be with you on your quest for love! 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
