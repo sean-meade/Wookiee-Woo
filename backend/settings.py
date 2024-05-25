@@ -64,22 +64,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-try:
-    DATABASES = {
-        'default': env.db(),
-    }
-except environ.ImproperlyConfigured:
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
-
-# Override with DATABASE_URL if it exists
-if env('DATABASE_URL', default=None):
-    DATABASES['default'] = env.db()
+else:
+    DATABASES = {
+            'default': env.db(),
+        }
 
 AUTH_PASSWORD_VALIDATORS = [
     {

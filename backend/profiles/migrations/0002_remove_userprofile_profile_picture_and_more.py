@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='userprofile',
-            name='profile_picture',
+            name='profile_icon',
         ),
         migrations.AlterField(
             model_name='customuser',
