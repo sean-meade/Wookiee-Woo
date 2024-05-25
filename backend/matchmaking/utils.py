@@ -1,5 +1,5 @@
 # These are utility functions for manipulating weights and titles
-from .data import films
+from data import RAW_FILMS
 
 def normalize_weights(weights: dict, factor: float=1.0) -> dict:
     """
@@ -42,3 +42,5 @@ def norm_title(string:str) -> str:
 	string = string.lower()
 	string = string.replace(' ', '_')
 	return string
+
+FILMS = [norm_title(film) for film in RAW_FILMS]

@@ -1,5 +1,3 @@
-from .utils import norm_title
-
 raw = """- Original trilogy
 	- Episode IV: A New Hope, 93%, 96%
 	- Episode V: The Empire Strikes Back, 95%, 97%
@@ -31,6 +29,6 @@ raw = """- Original trilogy
 lines = raw.split('\n')
 lines = [line.replace('%','') for line in lines if ',' in line]
 triples = [line.split(', ') for line in lines]
-films = [norm_title(triple[0]) for triple in triples]
-RT_critic_audience = {norm_title(triple[0]):(int(triple[1]),int(triple[2])) 
+RAW_FILMS = [triple[0] for triple in triples]
+RAW_RT_critic_audience = {triple[0]:(int(triple[1]),int(triple[2])) 
                       for triple in triples}

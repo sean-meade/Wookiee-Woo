@@ -1,6 +1,6 @@
-from .data import films
+from data import films
 from math import floor
-from .utils import create_weights
+from utils import create_weights
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
