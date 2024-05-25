@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Toast, ToastContainer } from 'react-bootstrap';
 
-function Profiles() {
+function ProfileList() {
   const [profiles, setProfiles] = useState([]);
   const [showToast, setShowToast] = useState(false);
 
@@ -53,4 +53,4 @@ function Profiles() {
   );
 }
 
-export default Profiles;
+export default ProfileList;

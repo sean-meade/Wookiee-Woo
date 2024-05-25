@@ -1,38 +1,40 @@
+// src/App.js
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Profiles from './pages/ProfilePage/Profile';
+import ProfileList from './pages/ProfileList/ProfileList';
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import PageNotFound from './pages/PageNotFound';
+import UserDetail from './components/UserDetail';
+import Login from './components/Login';
+import Register from './components/Register';
+import { AuthProvider } from './auth/authcontext';
+import Home from './components/Home';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/profiles" element={<Profiles />} />
-        <Route path="/" element={
-          <div>
-            <div className="App-container">
-              <div className="Nav-bar-container">
-                <NavBar />
-              </div>
-              <div className="Main-view-container">
-                <p>This is a placeholder text for Main view container. This container will render:</p>
-                <ul>
-                  <li>landing page unauthenticated</li>
-                  <li>landing page authenticated</li>
-                  <li>authentication sign in, out, up</li>
-                  <li>edit profile</li>
-                  <li>...and more</li>
-                </ul>
-              </div>
-            </div>
+    <AuthProvider>
+      <Router>
+        <div className="App-container">
+          <div className="Nav-bar-container">
+            <NavBar />
           </div>
-        } />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </Router>
+          <div className="Main-view-container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/users/:id" element={<UserDetail />} />
+              <Route path="/profiles" element={<ProfileList />} />
+              <Route path="/profiles/:id" element={<ProfileDetails />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
