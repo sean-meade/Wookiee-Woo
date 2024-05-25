@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ
+import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()  # Read .env file
@@ -9,9 +10,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('SECRET_KEY', default='your-default-secret-key')
 
-DEBUG = False
+DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = [env.list('ALLOWED_HOSTS', default=[])]
+
+ALLOWED_HOSTS.append("https://wookiewoo-backend-ff1b76fe3790.herokuapp.com/")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -63,6 +66,7 @@ try:
         'default': env.db(),
     }
 except environ.ImproperlyConfigured:
+    print("Exception used")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -70,10 +74,6 @@ except environ.ImproperlyConfigured:
         }
     }
 
-
-# Override with DATABASE_URL if it exists
-if env('DATABASE_URL', default=None):
-    DATABASES['default'] = env.db()
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -125,3 +125,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = 'profiles.CustomUser'
 
+django_heroku.settings(locals())
