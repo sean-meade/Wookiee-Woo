@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -5,14 +6,19 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
 import '../global.css';
 import logo from'../assets/wookie-doo-logo.png';
-// authentication import goes here
+import AuthContext from '../auth/authcontext';
+
 
 const NavBar = () => {
-    // authentication as useState is temporary:
-    // eslint-disable-next-line
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
-    const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const { user, logout } = useContext(AuthContext);
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+// handleLogout was brought from main branch while resolving conflicts 
+    const handleLogout = () => {
+        logout();
+        setExpanded(false);
+  };
+  
     const authenticatedOptions = (<>
         <NavLink
         to="/profiles"

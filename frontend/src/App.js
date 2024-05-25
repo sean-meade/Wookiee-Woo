@@ -1,11 +1,18 @@
+// src/App.js
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Profiles from './pages/ProfilePage/Profile';
+import ProfileList from './pages/ProfileList/ProfileList';
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import PageNotFound from './pages/PageNotFound';
+import UserDetail from './components/UserDetail';
+import Login from './components/Login';
+import Register from './components/Register';
+import { AuthProvider } from './auth/authcontext';
+import Home from './components/Home';
 
 function App() {
   return (
