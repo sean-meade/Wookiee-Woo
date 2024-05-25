@@ -2,6 +2,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from .models import SurveyResults
+from data import FILMS
 # after a merge this can be uncommented
 # from .data import films
 
@@ -15,10 +16,9 @@ class SurveyResultsSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SurveyResults
-        fields = [
-            'id', 'username', 'force_alignment', 'gender', 'looking_for', 
-            'profile_icon', 'bio', 'facebook', 'instagram', 'twitter'
-        ]
+        # I don't know how to get the user id to be put here since the user
+        # class is what is stored in the model
+        fields = ['user'] + FILMS
 
 class RegisterSerializer(serializers.ModelSerializer):
     """

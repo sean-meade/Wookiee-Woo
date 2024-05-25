@@ -27,3 +27,4 @@ class SurveyResults(models.Model):
     visions = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
     tales_of_the_empire = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
     tales_of_the_jedi = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
+
