@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-/* Overrides the default 'light theme' */
-* {
-  background-color: var(--secondary-color);
-}
 p, h1, li {
   color: var(--tertiary-color);
 }

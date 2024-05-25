@@ -42,9 +42,10 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
+  background-color: var(--secondary-color);
 }
 .Main-view-container {
-  padding: 50px;
+  padding: 100px;
   margin: 20px;
   border: 2px solid var(--tertiary-color);
   flex-grow: 1;
