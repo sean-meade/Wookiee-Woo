@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-//import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
+import '../global.css';
+import logo from'../assets/wookie-doo-logo.png';
 // authentication import goes here
 
 const NavBar = () => {
@@ -48,9 +49,12 @@ const NavBar = () => {
         className={styles.LogoToCollapseDirection}
         expand="md"
         >
-            <Navbar.Brand className={styles.NavBarLogo}>Logo</Navbar.Brand>
+            <Navbar.Brand>
+                <img className={styles.NavBarLogo} src={logo} alt="logo"/>
+            </Navbar.Brand>
 
                 <Navbar.Toggle
+                className={styles.CollapseButton}
                 ref={ref}
                 onClick={() => setExpanded(!expanded)}
                 aria-controls="basic-navbar-nav"
