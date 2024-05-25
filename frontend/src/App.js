@@ -17,6 +17,7 @@ import Home from './components/Home';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <div className="App-container">
         <div className="Nav-bar-container">
@@ -24,6 +25,7 @@ function App() {
         </div>
         <div className="Main-view-container">
       <Routes>
+      <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
         <Route path="/sign-in" element={<p>Sign in page</p>} />
         <Route path="/sign-up" element={<p>Sign up page</p>} />
@@ -34,6 +36,7 @@ function App() {
         </div>
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 
