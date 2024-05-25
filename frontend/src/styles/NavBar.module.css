@@ -13,8 +13,14 @@ ul {
 }
 
 .NavBarDirection {
+    margin-top: 150px;
     text-align: right;
     flex-direction: column;
+}
+@media (max-width: 768px) {
+    .NavBarDirection {
+        margin-top: 0px;
+    }
 }
 
 .CollapseButton {
@@ -23,7 +29,7 @@ ul {
     transform: skew(-3deg);
 }
 
-.NavBarLogo, .NavBarButton {
+ .NavBarButton {
     width: 100px;
     height: 60px;
     padding: 10px;
@@ -35,6 +41,21 @@ ul {
     border: 2px solid var(--tertiary-color);
     display: inline-block;
     transform: skew(-3deg);
+}
+
+.NavBarLogo {
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    height: auto;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 @media (max-width: 768px) {
     .NavBarLogo {
