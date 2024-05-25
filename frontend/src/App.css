@@ -42,6 +42,7 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
+  background-image: url("./assets/wookie-woo-wallpaper.jpg");
   background-color: var(--secondary-color);
 }
 .Main-view-container {
