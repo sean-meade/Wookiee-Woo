@@ -1,0 +1,12 @@
+Compiled with problems:
+×
+ERROR
+[eslint] 
+src/App.js
+  Line 30:43:  'Profiles' is not defined  react/jsx-no-undef
+
+src/components/NavBar.js
+  Line 13:28:  'useContext' is not defined       no-undef
+  Line 94:26:  'isAuthenticated' is not defined  no-undef
+
+Search for the keywords to learn more about each error.

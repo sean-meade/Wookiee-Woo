@@ -12,6 +12,7 @@ import AuthContext from '../auth/authcontext';
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 // handleLogout was brought from main branch while resolving conflicts 
     const handleLogout = () => {
