@@ -1,5 +1,5 @@
 # These are utility functions for manipulating weights and titles
-from data import RAW_FILMS
+from data import FILMS
 
 def normalize_weights(weights: dict, factor: float=1.0) -> dict:
     """
@@ -26,21 +26,10 @@ def create_weights(vector:list[int]=None) -> dict[str,int]:
     position i to the film in position i.
     """
     if vector is None:
-        return {film:1 for film in films}
-    elif len(vector) != len(films):
+        return {film:1 for film in FILMS}
+    elif len(vector) != len(FILMS):
           raise ValueError("The vector you submitted is the wrong length to"\
                            "produce a weight")
-    return {film: vector[i] for i, film in enumerate(films)}
+    return {film: vector[i] for i, film in enumerate(FILMS)}
 
-def norm_title(string:str) -> str:
-	string = string.replace('-', ' ')
-	if ':' in string:
-		string = string.split(':')[1]
-	string = string.strip()
-	if 'The '== string[0:4]:
-		string = string[4:]
-	string = string.lower()
-	string = string.replace(' ', '_')
-	return string
 
-FILMS = [norm_title(film) for film in RAW_FILMS]
