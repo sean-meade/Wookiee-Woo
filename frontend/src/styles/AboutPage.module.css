@@ -1,0 +1,28 @@
+.container {
+    color: #ecc6c6 ; 
+    text-align: justify;
+  }
+
+.pageheading {
+    font-size: 4rem;
+    color: #cf4f50;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.paragraph {
+    color: #ecc6c6;
+}
+
+.link {
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #ff6f61 ;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.link:hover {
+    background-color: #f92d1b ;
+}

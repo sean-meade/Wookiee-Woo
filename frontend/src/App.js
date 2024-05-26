@@ -6,6 +6,7 @@ import './global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ProfileList from './pages/ProfileList/ProfileList';
+import AboutPage from './pages/AboutPage/AboutPage';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import Profiles from './pages/ProfilePage/Profile';
 import PageNotFound from './pages/PageNotFound';
@@ -20,7 +21,7 @@ import AuthenticatedLandingPage from './pages/AuthenticatedLandingPage';
 function App() {
   return (
     <AuthProvider>
-    <Router>
+      <Router>
       <div className="App-container">
         <div className="Nav-bar-container">
           <NavBar />
