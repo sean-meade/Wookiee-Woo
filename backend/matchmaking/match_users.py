@@ -44,3 +44,37 @@ def is_match(u1: dict, u2: dict, weights: dict=create_weights(), threshold:int=6
     if percentage_match(u1,u2,weights) >= threshold:
         return True
     return False
+
+TRANSLATE ={
+'GENDERS':{
+    0: "Woman",
+    1: "Nonbinary",
+    2: "Genderfluid",
+    3: "Man",
+    4: "Prefer not to answer",
+    5: "Other",
+},
+'LOOKING_FOR':{
+    0: "Women",
+    1: "Men and Women",
+    2: "Neither",
+    3: "All/Any",
+    4: "Men",
+}
+}
+
+IS_ATTRACTIVE_TO = {
+    "Woman":{"Women","Men and Women", "All/Any"},
+    "Nonbinary":{"All/Any"},
+    "Genderfluid":{"All/Any", "Men and Women"},
+    "Man":{"Men and Women", "All/Any","Men"},
+    "Prefer not to answer":{"All/Any"},
+    "Other":{"All/Any"}
+}
+
+ATTRACTS = {
+    
+}
+def attracted_to(user1:dict,user2:dict) -> bool:
+    
+    pass
