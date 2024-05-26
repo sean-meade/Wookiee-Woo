@@ -15,6 +15,7 @@ DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 ALLOWED_HOSTS.append("wookiewoo-backend-ff1b76fe3790.herokuapp.com")
+ALLOWED_HOSTS.append('localhost')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
