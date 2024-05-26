@@ -53,7 +53,6 @@
 
 [https://wookie-woo-a4d53b6d7f27.herokuapp.com/](Wookie Woo Live Site)
 
-
 ## Deployment
 
 ### Development Setup
@@ -142,15 +141,13 @@ To set up the project for development, follow these steps:
     npm start
     ```
 
-## Seeding Demo Users
-
 [Go To The Top](#table-of-contents)
 
-### Seeding Demo Users
+## Seeding Demo Users
 
 This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
 
-#### To Seed Demo Users
+### To Seed Demo Users
 
 To seed the database with demo users, run the following command:
 
@@ -239,7 +236,12 @@ In designing the color palette for this project, a tertiary color wheel analysis
   - Light gray is used as a neutral background to keep the design clean and unobtrusive, allowing other colors to stand out.
   
 - **Complementary Color: #ff9800 (Orange)**
-  - Orange was selected as a complementary color to the blue, adding warmth and
+  - Orange was selected as a complementary color to the blue, adding warmth and creating a striking contrast when needed.
+  
+- **Analogous Color: #ff6f61 (Coral)**
+  - Coral, an analogous color to the primary red, provides additional variety and can be used for accents to maintain visual cohesion.
+
+  ![Color Palette](https://res.cloudinary.com/dgvipn16a/image/upload/v1716555532/colorscheme_f1exrx.png)
 
 [Go To The Top](#table-of-contents)
 
