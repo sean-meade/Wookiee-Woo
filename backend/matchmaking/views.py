@@ -16,6 +16,9 @@ from ..profiles.models import CustomUser
 # I may have also used kwargs poorly.
 @csrf_exempt
 def survey_results_create(request):
+    """
+    View used to create and edit Film results
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -26,7 +29,7 @@ def survey_results_create(request):
             del data['username']
             film_results = FilmResults(**data)
             film_results.save()
-            
+
             return JsonResponse({'status': 'success', 'data': json.loads(request.body)})
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
