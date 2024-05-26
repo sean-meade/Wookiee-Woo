@@ -2,7 +2,7 @@ from django.db import models
 from ..profiles.models import CustomUser
 
 # Create your models here.
-class SurveyResults(models.Model):
+class FilmResults(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     a_new_hope = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
     empire_strikes_back = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
@@ -28,3 +28,6 @@ class SurveyResults(models.Model):
     tales_of_the_empire = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
     tales_of_the_jedi = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
 
+
+#class QuestionResults(models.Model):
+#    question1 = models.TextChoices()
