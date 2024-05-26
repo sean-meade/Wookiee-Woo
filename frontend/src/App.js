@@ -5,15 +5,14 @@ import './App.css';
 import './global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import ProfileList from './pages/ProfileList/ProfileList';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import Profiles from './pages/ProfilePage/Profile';
 import PageNotFound from './pages/PageNotFound';
-import UserDetail from './components/UserDetail';
 import Login from './components/Login';
 import Register from './components/Register';
 import { AuthProvider } from './auth/authcontext';
 import Home from './components/Home';
+import StarWarsSurvey from './pages/MatchMakingPage/MatchMakingPage';
 
 function App() {
   return (
@@ -32,6 +31,7 @@ function App() {
         <Route path="/sign-out" element={<p>Sign out page</p>} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/profiles/:id" element={<ProfileDetails />} />
+        <Route path="/survey/" element={<StarWarsSurvey />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
         </div>
