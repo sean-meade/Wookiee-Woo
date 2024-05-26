@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MatchComponent from "./matchComponents/MatchComponent.js";
 import UserComponent from "./matchComponents/UserComponent.js";
 import "../../global.css";
