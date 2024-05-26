@@ -1,4 +1,58 @@
+# Project Name
+
+## Table of Contents
+
+- [User Stories](#user-stories)
+- [Deployment](#deployment)
+  - [Development Setup](#development-setup)
+  - [Seeding Demo Users](#seeding-demo-users)
+  - [Production Build and Deployment](#production-build-and-deployment)
+- [Wireframes](#wireframes)
+- [Color Scheme](#color-scheme)
+- [Team Members](#team-members)
+- [Technologies Used](#technologies-used)
+
+## User Stories
+
+### Profile Management
+
+- As a user, I want to be able to edit my profile because I might have made a mistake or want to update it.
+- As a user, I want to fill out my own profile because I want to be able to create my own page.
+- As a new user, I want to be able to delete my account because I might have found the Leia to my Han.
+
+### Matching and Preferences
+
+- As a user, I want to match with another user who I am interested in and who is interested in me.
+- As a user, I want to be matched with other users based on my rankings because I don't want to date anyone who likes Jar Jar Binks.
+- As a user, I want to rank Star Wars movies/shows because I want the most accurate matching with other users.
+- As a user, I want to edit my rankings because my tastes may change or I might have made a mistake.
+- As a user, I want to view my matches and their details on my page because I want to be able to easily view the details of my matches.
+- NTH - As a user, I want to be able to rank characters because I want to match with people who like similar characters.
+- NTH - As a user, I want to view other users' profiles after suggested matching because I want to be able to decide whether to match or not.
+- NTH - As a user, I want to view my own profile because I want to be able to view my own details.
+
+## Additional Tasks and Features
+
+### Frontend Development
+
+- Frontend authentification and CRUD.
+- Frontend rating component.
+- Create about us page - Frontend.
+
+### Backend Development
+
+- Routing for 404, landing page, about me page in Django.
+- Make ERDs.
+- Gather images/media/sound clips/gifs/useful links for project.
+
+### Miscellaneous
+
+- Intro video.
+
+[Go To The Top](#table-of-contents)
+
 [https://wookie-woo-a4d53b6d7f27.herokuapp.com/](Wookie Woo Live Site)
+
 
 ## Deployment
 
@@ -36,7 +90,7 @@ To set up the project for development, follow these steps:
     ```plaintext
     DEBUG=True
     SECRET_KEY=your-very-secret-key
-    DATABASE_URL=postgres://username:password@hostname/databasename #Dont add this line if you want to default to SQlite
+    DATABASE_URL=postgres://username:password@hostname/databasename # Don't add this line if you want to default to SQLite
     ALLOWED_HOSTS=localhost,127.0.0.1
     ```
 
@@ -90,15 +144,20 @@ To set up the project for development, follow these steps:
 
 ## Seeding Demo Users
 
-This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
+[Go To The Top](#table-of-contents)
 
 ### Seeding Demo Users
 
+This project includes a custom Django management command to seed the database with demo users for testing and development purposes. Follow the steps below to use this command.
+
+#### To Seed Demo Users
+
 To seed the database with demo users, run the following command:
 
-```bash
+```bash```
 python manage.py seed_demo_users
 
+[Go To The Top](#table-of-contents)
 
 ### Production Build and Deployment
 
@@ -153,10 +212,13 @@ To prepare and serve the project for production, follow these steps:
 
     Make sure the `build` directory of your React app is inside the `frontend` directory.
 
-<<<<<<< 14-add-authentification-and-elaborated-model-and-view-logic-to-profiles---backend
+[Go To The Top](#table-of-contents)
+
+## Wireframes
+
 Wireframes by Alma Isaksson
-=======
-Wireframes by Alma Isaksson
+
+[Go To The Top](#table-of-contents)
 
 ## Color Scheme
 
@@ -177,10 +239,46 @@ In designing the color palette for this project, a tertiary color wheel analysis
   - Light gray is used as a neutral background to keep the design clean and unobtrusive, allowing other colors to stand out.
   
 - **Complementary Color: #ff9800 (Orange)**
-  - Orange was selected as a complementary color to the blue, adding warmth and creating a striking contrast when needed.
-  
-- **Analogous Color: #ff6f61 (Coral)**
-  - Coral, an analogous color to the primary red, provides additional variety and can be used for accents to maintain visual cohesion.
+  - Orange was selected as a complementary color to the blue, adding warmth and
 
-  ![Color Palette](https://res.cloudinary.com/dgvipn16a/image/upload/v1716555532/colorscheme_f1exrx.png)
->>>>>>> main
+[Go To The Top](#table-of-contents)
+
+## Team Members
+
+- **Alma Isaksson** - "Rebellions are built on hope."
+- **Anwar Dawoud** - "Dream big, work hard, stay focused, and surround yourself with good people."
+- **Dennis Mariegaard Jensen** - "Mawaa na jee-jee" (Never give up).
+- **Rob Dawson** - "Never tell me odds!"
+- **Seán Meade** - "Life is like a box of chocolate, you never know what you're gonna' get."
+- **Sean Tilson** - "I don't know, fly casual."
+- **Wehlia Kahin** - "Yoda best for real! Believe it!"
+
+[Go To The Top](#table-of-contents)
+
+## Technologies Used
+
+### Backend
+
+- Python
+  - [Documentation](https://www.python.org/doc/)
+- Django
+  - [Documentation](https://docs.djangoproject.com/en/stable/)
+
+#### Database
+
+- PostgreSQL (for production)
+  - [Documentation](https://www.postgresql.org/docs/)
+- SQLite (for development)
+
+### Frontend
+
+- JavaScript
+- React
+  - [Documentation](https://reactjs.org/docs/getting-started.html)
+
+### Deployment Platform
+
+- Heroku
+  - [Documentation](https://devcenter.heroku.com/)
+
+[Go To The Top](#table-of-contents)
