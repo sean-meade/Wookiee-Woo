@@ -1,6 +1,6 @@
 import React from "react";
-import MatchComponent from "./matchComponents/MatchComponent.js";
-import UserComponent from "./matchComponents/UserComponent.js";
+import MatchListComponent from "./matchComponents/MatchListComponent.js";
+import MatchDetailComponent from "./matchComponents/MatchDetailComponent.js";
 import "../../global.css";
 import styles from "../../styles/MatchPage.module.css"
 
@@ -9,10 +9,10 @@ const MatchPage = () => {
     return(<>
     <div className={styles.MatchPageContainer}>
         <div className={styles.UserContainer}>
-            <UserComponent />
+            <MatchListComponent />
         </div>
         <div className={styles.MatchContainer}>
-            <MatchComponent />
+            <MatchDetailComponent />
         </div>
     </div>
     </>);
