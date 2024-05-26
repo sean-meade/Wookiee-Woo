@@ -1,4 +1,4 @@
-.landing-page-container{
+.landingPageContainer{
     background-color: #243145 ; 
     display: flex;
     padding: 50px;
@@ -6,15 +6,15 @@
     width: 100vw;
 }
 
-.landing-page-content {
+.landingPageContent {
     color: #ecc6c6 ; 
     text-align: center;
 }
 
-.landing-page-video {
+.landingPageVideo {
     width: auto;
 }
 
-.landing-page-content h1 {
+.landingPageContent h1 {
     color: #cf4f50;
 }
