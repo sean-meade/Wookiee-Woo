@@ -14,4 +14,4 @@ class FilmResultsSerializer(serializers.ModelSerializer):
     class Meta:
         model = FilmResults
         # I would like to include the user id for safety check purposes.
-        fields = FILMS
+        fields = ('a_new_hope', 'empire_strikes_back')

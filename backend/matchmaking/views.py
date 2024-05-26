@@ -1,6 +1,8 @@
 import sys
 from django.http import HttpResponse
 from .models import FilmResults
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # I don't know how to write views so I will plan them semantically
@@ -15,7 +17,7 @@ def survey_results_create(request):
     """
     print(request.__dict__, file=sys.stderr)
     user = request.user
-    film_results = request.film_results
+    film_results = request.movie1
     user_film_results = FilmResults(user=user, **film_results)
     user_film_results.save()
 
