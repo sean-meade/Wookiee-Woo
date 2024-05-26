@@ -1,4 +1,5 @@
 import sys
+import sys
 from django.http import HttpResponse
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
