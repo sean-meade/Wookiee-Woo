@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../../styles/UserComponent.module.css";
 
 const UserComponent = () => {
 

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../../styles/MatchListComponent.module.css";
 
 const MatchListComponent = () => {
 

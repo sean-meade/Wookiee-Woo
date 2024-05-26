@@ -3,6 +3,7 @@ import MatchComponent from "./matchComponents/MatchComponent.js";
 import MatchDetailComponent from "./matchComponents/MatchDetailComponent.js";
 import MatchListComponent from "./matchComponents/MatchListComponent.js";
 import UserComponent from "./matchComponents/UserComponent.js";
+import styles from "../../styles/MatchPage.module.css"
 
 const MatchPage = () => {
 

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../../styles/MatchDetailComponent.module.css"
 
 const MatchDetailComponent = () => {
 
