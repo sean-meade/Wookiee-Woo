@@ -1,0 +1,27 @@
+.landingPageContainer{
+    background-color: #243145 ; 
+    display: flex;
+    padding: 50px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.profileOverview,
+.suggestions{
+    background-color: #243145 ;
+    border: #ecc6c6 1px solid;
+    border-radius: 5px; 
+}
+
+.cardTitle {
+    color: #cf4f50;
+}
+
+.cardText {
+    color: #ecc6c6 ;
+}
