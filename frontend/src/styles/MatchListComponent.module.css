@@ -1,0 +1,6 @@
+.MatchListComponentContainer {
+    border: 1px solid var(--tertiary-color);
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

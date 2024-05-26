@@ -1,0 +1,20 @@
+.MatchPageContainer {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    display: flex;
+}
+@media (max-width: 768px) {
+    .MatchPageContainer {
+        padding: 0px;
+        border: none;
+        display: block;
+    }
+  }
+
+.UserContainer {
+    width: 100%;
+}
+
+.MatchContainer {
+    width: 100%;
+}
