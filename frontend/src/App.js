@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { AuthProvider } from './auth/authcontext';
 import Home from './components/Home';
+import AuthenticatedLandingPage from './pages/AuthenticatedLandingPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
+        <Route path="/landing" element={<AuthenticatedLandingPage />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-out" element={<p>Sign out page</p>} />
