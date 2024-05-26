@@ -62,7 +62,7 @@
   height: auto;
 }
 
-/* App, Main-view, Nav-bar container Media query for small screens (phones) */
+
 @media (max-width: 768px) {
   .App-container {
     flex-direction: column;
@@ -85,4 +85,78 @@
 p, h1, li {
   color: var(--tertiary-color);
   font-family: Ubuntu, sans-serif;
+}
+
+body {
+  background-color: #1a1a1a; /* dark background */
+  color: #ffffff; /* white text */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border: 1px solid #ffffff;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #3a3a3a;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #4a4a4a;
+}
+
+.main-content {
+  flex-grow: 1;
+  text-align: center;
+  border: 1px solid #ffffff;
+  padding: 50px;
+}
+
+.main-content h1 {
+  font-size: 36px;
+  color: #ff4c4c;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  color: #ff4c4c;
+}
+
+.main-content p {
+  font-size: 18px;
+  color: #cccccc;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  background-color: #4a4a4a;
+  padding: 10px;
+  border: 1px solid #ffffff;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
 }
