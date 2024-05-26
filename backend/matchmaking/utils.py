@@ -33,3 +33,11 @@ def create_weights(vector:list[int]=None) -> dict[str,int]:
     return {film: vector[i] for i, film in enumerate(FILMS)}
 
 
+def dirac_delta(choice1:int, choice2:int, weight:int=1)-> int:
+    """
+    Returns zero if users did make the same choice. If the choices didn't
+    it returns the weight to increase the distance.
+    """
+    if choice1 != choice2:
+        return weight
+    return 0
