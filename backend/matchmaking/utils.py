@@ -1,5 +1,6 @@
 # These are utility functions for manipulating weights and titles
 from data import FILMS
+from collections import defaultdict
 
 
 def normalize_weights(weights: dict, factor: float=1.0) -> dict:
@@ -34,4 +35,17 @@ def create_weights(vector:list[int]=None) -> dict[str,int]:
           raise ValueError("The vector you submitted is the wrong length to"\
                            "produce a weight")
     return {film: vector[i] for i, film in enumerate(FILMS)}
+
+def invert_dict(sample:dict) -> dict:
+    """
+    Returns a dict with key:value where key in sample[val]
+    for all val in value.
+    """
+    keys = sample.values()
+    inverse = defaultdict(set)
+    for key in keys:
+        for old_key in sample.keys():
+            if key in sample[old_key]:
+                inverse[key].add(old_key)
+    return inverse
 

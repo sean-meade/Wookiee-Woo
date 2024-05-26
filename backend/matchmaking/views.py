@@ -1,11 +1,8 @@
 import sys
-import sys
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
 import json
-from django.http import JsonResponse
-from .models import FilmResults
 
 # I don't know how to write views so I will plan them semantically
 # in particular, maybe they should be classes

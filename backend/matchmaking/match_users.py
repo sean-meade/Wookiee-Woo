@@ -1,5 +1,5 @@
 from math import floor
-from utils import create_weights, FILMS
+from utils import create_weights, FILMS, invert_dict
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
@@ -63,7 +63,7 @@ TRANSLATE ={
 }
 }
 
-IS_ATTRACTIVE_TO = {
+GENDER_TO_LOOKING_FOR = {
     "Woman":{"Women","Men and Women", "All/Any"},
     "Nonbinary":{"All/Any"},
     "Genderfluid":{"All/Any", "Men and Women"},
@@ -72,9 +72,13 @@ IS_ATTRACTIVE_TO = {
     "Other":{"All/Any"}
 }
 
-ATTRACTS = {
-    
+
+LOOKING_FOR_TO_GENDER = {
+    "Women":{"Woman"},
+    "Men and Women":{"Woman","Man","Genderfluid"},
+    "All/Any":{}
 }
+'''
 def attracted_to(user1:dict,user2:dict) -> bool:
     
-    pass
+    pass'''
