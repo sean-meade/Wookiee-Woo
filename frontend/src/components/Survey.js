@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SurveyContext from '../survey/surveycontext';
 import Ranking from './Ranking';
 import AuthContext from "../auth/authcontext";
+import authService from '../auth/auth';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 const Survey = () => {
@@ -16,7 +17,9 @@ const Survey = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await survey(movie1, movie2, token);
+      const response = await authService.getProfile(token);
+      const { username, email, bio } = response.data;
+      await survey(movie1, movie2, token, username);
       navigate('/');
     } catch (error) {
       console.error('Survey submission failed', error);
@@ -50,7 +53,6 @@ const Survey = () => {
             <Button variant="primary" type="submit" className="mt-3">
               Submit
             </Button>
-            <Ranking></Ranking>
           </Form>
         </Col>
       </Row>

@@ -18,10 +18,7 @@ def survey_results_create(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            print(data, file=sys.stderr) 
-            # Process the data as needed
-            # {'movie1': '3', 'movie2': '5'}
-            FilmResults
+            
             return JsonResponse({'status': 'success', 'data': data})
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
