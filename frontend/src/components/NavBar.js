@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
@@ -12,7 +12,6 @@ import AuthContext from '../auth/authcontext';
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 // handleLogout was brought from main branch while resolving conflicts 
     const handleLogout = () => {
@@ -28,13 +27,12 @@ const NavBar = () => {
         >
             My profile
         </NavLink><br/><br/>
-        <NavLink
-        to="/sign-out"
+        <div
+        onClick={handleLogout}
         className={styles.NavBarButton}
-        activeClassName={styles.Active}
         >
             Sign out
-        </NavLink><br/><br/>
+        </div><br/><br/>
     </>)
 
     const unauthenticatedOptions = (<>
@@ -92,7 +90,7 @@ const NavBar = () => {
                         >
                             home
                         </NavLink><br/><br/>
-                        {isAuthenticated ? (authenticatedOptions) : (unauthenticatedOptions)}
+                        {user ? (authenticatedOptions) : (unauthenticatedOptions)}
                         </ul>
                     </Nav>
 
