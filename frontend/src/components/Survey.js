@@ -1,19 +1,21 @@
-// src/components/Survey.js
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SurveyContext from '../survey/surveycontext'; 
+import SurveyContext from '../survey/surveycontext';
+import AuthContext from "../auth/authcontext";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 const Survey = () => {
   const [movie1, setMovie1] = useState('');
   const [movie2, setMovie2] = useState('');
   const { survey } = useContext(SurveyContext);
+  const { token } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await survey(movie1, movie2);
+      await survey(movie1, movie2, token);
       navigate('/');
     } catch (error) {
       console.error('Survey submission failed', error);
@@ -39,7 +41,7 @@ const Survey = () => {
               <Form.Label>Movie Two</Form.Label>
               <Form.Control
                 type="number"
-                value={movie2}  // corrected value={movie1} to value={movie2}
+                value={movie2}
                 onChange={(e) => setMovie2(e.target.value)}
                 placeholder="Enter Rating Movie2"
               />

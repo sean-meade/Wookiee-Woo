@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+from django.http import JsonResponse
 
 # I don't know how to write views so I will plan them semantically
 # in particular, maybe they should be classes
@@ -12,14 +12,16 @@ import json
 # Similar for the film_results.
 # I may have also used kwargs poorly.
 def survey_results_create(request):
-    """
-    This should take the answers for the questionaire/survey, add the 
-    """
-    print(request.__dict__, file=sys.stderr)
-    user = request.user
-    film_results = request.movie1
-    user_film_results = FilmResults(user=user, **film_results)
-    user_film_results.save()
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            print(data, file=sys.stderr)  # Print the parsed JSON payload to stderr
+            # Process the data as needed
+            return JsonResponse({'status': 'success', 'data': data})
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
+
 
 def survey_results_display(request):
     """
