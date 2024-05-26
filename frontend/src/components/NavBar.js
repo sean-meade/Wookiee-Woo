@@ -1,18 +1,17 @@
 
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
 import '../global.css';
-import logo from'../assets/wookie-doo-logo.png';
+import logo from'../assets/wookie-woo-logo.png';
 import AuthContext from '../auth/authcontext';
 
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 // handleLogout was brought from main branch while resolving conflicts 
     const handleLogout = () => {
@@ -28,13 +27,12 @@ const NavBar = () => {
         >
             My profile
         </NavLink><br/><br/>
-        <NavLink
-        to="/sign-out"
+        <div
         className={styles.NavBarButton}
-        activeClassName={styles.Active}
+        onClick={handleLogout}
         >
             Sign out
-        </NavLink><br/><br/>
+        </div><br/><br/>
     </>)
 
     const unauthenticatedOptions = (<>
@@ -60,6 +58,7 @@ const NavBar = () => {
         className={styles.LogoToCollapseDirection}
         expand="md"
         >
+
             <Navbar.Brand>
                 <img className={styles.NavBarLogo} src={logo} alt="logo"/>
             </Navbar.Brand>
@@ -92,7 +91,7 @@ const NavBar = () => {
                         >
                             home
                         </NavLink><br/><br/>
-                        {isAuthenticated ? (authenticatedOptions) : (unauthenticatedOptions)}
+                        {user ? (authenticatedOptions) : (unauthenticatedOptions)}
                         </ul>
                     </Nav>
 
