@@ -1,7 +1,10 @@
 from django.db import models
 from ..profiles.models import CustomUser
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 # Create your models here.
+# Do I need a to dict method even though there is a serializer?
 class FilmResults(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     a_new_hope = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)],null=True)
