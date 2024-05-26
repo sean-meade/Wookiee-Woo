@@ -38,7 +38,6 @@ function App() {
         <Route path="/sign-out" element={<p>Sign out page</p>} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/profiles/:id" element={<ProfileDetails />} />
-        <Route path="/survey/" element={<StarWarsSurvey />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
         </div>

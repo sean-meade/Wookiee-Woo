@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SurveyContext from '../survey/surveycontext';
+import Ranking from './Ranking';
 import AuthContext from "../auth/authcontext";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
@@ -49,6 +50,7 @@ const Survey = () => {
             <Button variant="primary" type="submit" className="mt-3">
               Submit
             </Button>
+            <Ranking></Ranking>
           </Form>
         </Col>
       </Row>
