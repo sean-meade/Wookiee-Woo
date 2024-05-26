@@ -5,6 +5,7 @@ import './App.css';
 import './global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Survey from './components/Survey';
 import ProfileList from './pages/ProfileList/ProfileList';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import Profiles from './pages/ProfilePage/Profile';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
         <Route path="/landing" element={<AuthenticatedLandingPage />} />
+        <Route path="/survey" element={<Survey />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-out" element={<p>Sign out page</p>} />
