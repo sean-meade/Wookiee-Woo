@@ -18,11 +18,15 @@ from ..profiles.models import CustomUser
 def survey_results_create(request):
     if request.method == 'POST':
         try:
-            print(json.loads(request.body))
             data = json.loads(request.body)
-            print(data['username'])
-            # user = CustomUser.objects.filter(user=data['username'])
-            # print(user)
+            username = data['username']
+            user = CustomUser.objects.filter(username=username)
+            print(user)
+            data['user'] = user[0]
+            del data['username']
+            film_results = FilmResults(**data)
+            film_results.save()
+            
             return JsonResponse({'status': 'success', 'data': json.loads(request.body)})
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
