@@ -14,6 +14,7 @@ JWT_SIGNING_KEY = env('JWT_SIGNING_KEY', default='your-default-jwt-signing-key')
 DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS.append("wookiewoo-backend-ff1b76fe3790.herokuapp.com")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,6 +29,9 @@ INSTALLED_APPS = [
     'backend.profiles',
     'backend.matchmaking',
 ]
+
+# So Django can handle multiple sites from one database
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,22 +64,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-try:
-    DATABASES = {
-        'default': env.db(),
-    }
-except environ.ImproperlyConfigured:
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
-
-# Override with DATABASE_URL if it exists
-if env('DATABASE_URL', default=None):
-    DATABASES['default'] = env.db()
+else:
+    DATABASES = {
+            'default': env.db(),
+        }
 
 AUTH_PASSWORD_VALIDATORS = [
     {

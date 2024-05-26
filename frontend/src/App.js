@@ -19,25 +19,25 @@ import Home from './components/Home';
 function App() {
   return (
     <AuthProvider>
-    <Router>
-      <div className="App-container">
-        <div className="Nav-bar-container">
-          <NavBar />
+      <Router>
+        <div className="App-container">
+          <div className="Nav-bar-container">
+            <NavBar />
+          </div>
+          <div className="Main-view-container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sign-in" element={<Login />} />
+              <Route path="/sign-up" element={<Register />} />
+              <Route path="/sign-out" element={<p>Sign out page</p>} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/profiles" element={<Profiles />} />
+              <Route path="/profiles/:id" element={<ProfileDetails />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </div>
         </div>
-        <div className="Main-view-container">
-      <Routes>
-      <Route path="/" element={<Home />} />
-        <Route path="/" element={<p>Landing page</p>} />
-        <Route path="/sign-in" element={<p>Sign in page</p>} />
-        <Route path="/about" element={<AboutPage/>} />
-        <Route path="/sign-up" element={<p>Sign up page</p>} />
-        <Route path="/sign-out" element={<p>Sign out page</p>} />
-        <Route path="/profiles" element={<Profiles />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-        </div>
-      </div>
-    </Router>
+      </Router>
     </AuthProvider>
   );
 }
