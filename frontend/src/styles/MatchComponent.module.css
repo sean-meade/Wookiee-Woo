@@ -1,3 +1,19 @@
 .MatchComponentContainer {
-    border: 1px solid var(--tertiary-color);
+    border: 1px none var(--tertiary-color);
+}
+
+.IsListContainer {
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px solid var(--tertiary-color);
+}
+
+.IsDetailContainer {
+    padding: 5px;
+    margin: 5px;
+    border: 1px none var(--tertiary-color);
+}
+
+.DetailsLink {
+    color: var(--primary-color);
 }

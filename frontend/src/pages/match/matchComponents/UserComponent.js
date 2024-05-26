@@ -1,3 +1,4 @@
+// This component is unused
 import React from "react";
 import "../../../global.css";
 import styles from "../../../styles/UserComponent.module.css";

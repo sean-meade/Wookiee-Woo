@@ -8,7 +8,7 @@ const MatchPage = () => {
 
     return(<>
     <div className={styles.MatchPageContainer}>
-        <div className={styles.UserContainer}>
+        <div className={styles.MatchContainer}>
             <MatchListComponent />
         </div>
         <div className={styles.MatchContainer}>

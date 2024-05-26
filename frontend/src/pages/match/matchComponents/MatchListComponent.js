@@ -1,12 +1,21 @@
 import React from "react";
 import "../../../global.css";
 import styles from "../../../styles/MatchListComponent.module.css";
+import MatchComponent from "./MatchComponent";
 
 const MatchListComponent = () => {
 
     return(<>
     <div className={styles.MatchListComponentContainer}>
-        <p>Skeleton for MatchListComponent.js</p>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
+        <MatchComponent IsList/>
     </div>
     </>);
 };
