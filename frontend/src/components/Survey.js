@@ -1,3 +1,4 @@
+// src/components/Survey.js
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SurveyContext from '../survey/surveycontext'; 
@@ -6,7 +7,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 const Survey = () => {
   const [movie1, setMovie1] = useState('');
   const [movie2, setMovie2] = useState('');
-  const { survey } = useContext(SurveyContext); 
+  const { survey } = useContext(SurveyContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -38,7 +39,7 @@ const Survey = () => {
               <Form.Label>Movie Two</Form.Label>
               <Form.Control
                 type="number"
-                value={movie1}
+                value={movie2}  // corrected value={movie1} to value={movie2}
                 onChange={(e) => setMovie2(e.target.value)}
                 placeholder="Enter Rating Movie2"
               />

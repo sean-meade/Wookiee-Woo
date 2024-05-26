@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import generics, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -32,3 +33,9 @@ class ProfileView(generics.RetrieveUpdateDestroyAPIView):
         user = self.get_object()
         self.perform_destroy(user)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+def home(request):
+    """
+    This should take the answers for the questionaire/survey, add the 
+    """
+    return render(request, 'test.html')

@@ -12,7 +12,7 @@ const survey = (movie1, movie2) => {
 };
 
 const surveyService = {
-    survey
+    survey,
 };
 
 export default surveyService;
