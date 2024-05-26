@@ -1,3 +1,4 @@
+import sys
 from django.http import HttpResponse
 from .models import FilmResults
 
@@ -12,6 +13,7 @@ def survey_results_create(request):
     """
     This should take the answers for the questionaire/survey, add the 
     """
+    print(request.__dict__, file=sys.stderr)
     user = request.user
     film_results = request.film_results
     user_film_results = FilmResults(user=user, **film_results)
