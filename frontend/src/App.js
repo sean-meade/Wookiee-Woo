@@ -9,6 +9,7 @@ import ProfileList from './pages/ProfileList/ProfileList';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import Profiles from './pages/ProfilePage/Profile';
 import PageNotFound from './pages/PageNotFound';
+import UnauthenticatedLandingPage from './pages/UnauthenticatedLandingPage';
 import UserDetail from './components/UserDetail';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -26,7 +27,8 @@ function App() {
         </div>
         <div className="Main-view-container">
       <Routes>
-      <Route path="/" element={<Home />} />
+        <Route path="/unauthenticatedlandingpage" element={<UnauthenticatedLandingPage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
         <Route path="/landing" element={<AuthenticatedLandingPage />} />
         <Route path="/sign-in" element={<Login />} />
