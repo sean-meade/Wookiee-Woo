@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
 import '../global.css';
-import logo from'../assets/wookie-doo-logo.png';
+import logo from'../assets/wookie-woo-logo.png';
 import AuthContext from '../auth/authcontext';
 
 
@@ -28,8 +28,8 @@ const NavBar = () => {
             My profile
         </NavLink><br/><br/>
         <div
-        onClick={handleLogout}
         className={styles.NavBarButton}
+        onClick={handleLogout}
         >
             Sign out
         </div><br/><br/>
@@ -58,6 +58,7 @@ const NavBar = () => {
         className={styles.LogoToCollapseDirection}
         expand="md"
         >
+
             <Navbar.Brand>
                 <img className={styles.NavBarLogo} src={logo} alt="logo"/>
             </Navbar.Brand>
