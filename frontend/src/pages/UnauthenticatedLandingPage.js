@@ -1,12 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar'; 
-import './UnauthenticatedLandingPage.module.css';
+import '../UnauthenticatedLandingPage.module.css';
 
 const UnauthorisedLandingPage = () => {
   return (
     <div>
-      <Navbar />
       <div className={styles.landing-page-container}>
         <div className={styles.landing-page-content}>
           <h1>Welcome Wookie Woo</h1>
