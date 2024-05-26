@@ -19,8 +19,9 @@ const Survey = () => {
     try {
       const response = await authService.getProfile(token);
       const { username, email, bio } = response.data;
-      await survey(movie1, movie2, token, username);
-      navigate('/');
+      console.log(username);
+      await survey(movie1, movie2, username, token);
+      // navigate('/');
     } catch (error) {
       console.error('Survey submission failed', error);
     }

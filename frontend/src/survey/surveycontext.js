@@ -7,8 +7,8 @@ const SurveyContext = createContext();
 export const SurveyProvider = ({ children }) => {
 
 
-  const survey = (movie1, movie2) => {
-    return surveyService.survey(movie1, movie2);
+  const survey = (movie1, movie2, username) => {
+    return surveyService.survey(movie1, movie2, username);
   };
 
   return (
