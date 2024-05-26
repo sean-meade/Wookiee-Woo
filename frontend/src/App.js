@@ -31,6 +31,7 @@ function App() {
         <Route path="/unauthenticatedlandingpage" element={<UnauthenticatedLandingPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/landing" element={<AuthenticatedLandingPage />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
