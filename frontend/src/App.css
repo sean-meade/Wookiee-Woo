@@ -81,3 +81,8 @@
     border: none;
   }
 }
+
+p, h1, li {
+  color: var(--tertiary-color);
+  font-family: Ubuntu, sans-serif;
+}

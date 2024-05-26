@@ -8,11 +8,14 @@ import NavBar from './components/NavBar';
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import Profiles from './pages/ProfilePage/Profile';
 import PageNotFound from './pages/PageNotFound';
+import UnauthenticatedLandingPage from './pages/UnauthenticatedLandingPage';
+import UserDetail from './components/UserDetail';
 import Login from './components/Login';
 import Register from './components/Register';
 import { AuthProvider } from './auth/authcontext';
 import Home from './components/Home';
 import StarWarsSurvey from './pages/MatchMakingPage/MatchMakingPage';
+import AuthenticatedLandingPage from './pages/AuthenticatedLandingPage';
 
 function App() {
   return (
@@ -24,8 +27,10 @@ function App() {
         </div>
         <div className="Main-view-container">
       <Routes>
-      <Route path="/" element={<Home />} />
+        <Route path="/unauthenticatedlandingpage" element={<UnauthenticatedLandingPage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
+        <Route path="/landing" element={<AuthenticatedLandingPage />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-out" element={<p>Sign out page</p>} />
