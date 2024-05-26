@@ -4,14 +4,14 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Profiles from './pages/ProfilePage/Profile';
-import UnauthLandingPage from './pages/UnauthLandingPage';
 import PageNotFound from './pages/PageNotFound';
+import UnauthenticatedLandingPage from './pages/UnauthenticatedLandingPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/unauthlandingpage" element={<UnauthLandingPage />} />
+        <Route path="/unauthenticatedlandingpage" element={<UnauthenticatedLandingPage />} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/" element={
           <div>
