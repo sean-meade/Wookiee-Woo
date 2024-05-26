@@ -1,10 +1,13 @@
 import React from "react";
+import "../../../global.css";
 import styles from "../../../styles/UserComponent.module.css";
 
 const UserComponent = () => {
 
     return(<>
-        <h1>Skeleton for UserComponent.js</h1>
+    <div className={styles.UserComponentContainer}>
+        <p>Skeleton for UserComponent.js</p>
+    </div>
     </>);
 };
 

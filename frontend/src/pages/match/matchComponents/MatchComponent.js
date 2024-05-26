@@ -1,10 +1,13 @@
 import React from "react";
+import "../../../global.css";
 import styles from "../../../styles/MatchComponent.module.css";
 
 const MatchComponent = () => {
 
     return(<>
-        <h1>Skeleton for MatchComponent.js</h1>
+    <div className={styles.MatchComponentContainer}>
+        <p>Skeleton for MatchComponent.js</p>
+    </div>
     </>);
 };
 

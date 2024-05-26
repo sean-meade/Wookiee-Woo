@@ -1,0 +1,11 @@
+.MatchPageContainer {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    min-height: 100vh;
+}
+@media (max-width: 768px) {
+    .MatchPageContainer {
+        padding: 0px;
+        border: none;
+    }
+  }
