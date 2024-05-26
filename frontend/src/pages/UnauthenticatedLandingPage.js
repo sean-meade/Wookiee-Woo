@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'; 
-import './LandingPage.module.css';
+import './UnauthenticatedLandingPage.module.css';
 
 const UnauthorisedLandingPage = () => {
   return (
