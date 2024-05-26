@@ -2,13 +2,11 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar';
-import './AuthenticatedLandingPage.module.css';
+import styles from '../styles/AuthenticatedLandingPage.module.css';
 
 const AuthenticatedLandingPage = () => {
     return (
         <div className={styles.landingPageContainer}>
-            <Navbar />
             <Container className="mt-5">
                 <Row>
                     <Col md={6}>
@@ -38,4 +36,4 @@ const AuthenticatedLandingPage = () => {
     );
 };
 
-export default UnauthorisedLandingPage;
+export default AuthenticatedLandingPage;
