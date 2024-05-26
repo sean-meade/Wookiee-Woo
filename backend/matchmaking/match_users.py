@@ -1,46 +1,41 @@
 from math import floor
-from utils import create_weights, FILMS
+from .utils import create_weights, FILMS
 
-# This file contains the relevant functions for matching users 
-# based on their SurveyResults
-
-# some preprocessing may need to be done to produce u1 and u2 from
-# users/profiles.
-def distance(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
-    '''
-    u1 and u2 are dictionaries containing the survey result data. weight is a 
-    dictionary that contains the weights necessary to compute the weighted
-    sum. adjusting an individual value will scale the importance of that film.
-    '''
-    overlap = {film: u1[film] and u2[film] for film in FILMS}
-    sum = 0
-    for film, value in overlap.items():
-        if value:
-            sum += weights[film]*(u1[film]-u2[film])**2
-    return sum
-
-
-def max_distance(weights) -> int:
+def distance(u1: dict, u2: dict, vector: list[int] = None) -> int:
     """
-    Computes maximum distance between two users for a given collection of
-    weights.
+    Computes the weighted sum of squared differences between u1 and u2.
+    """
+    weights = create_weights(vector=vector)
+    total = 0
+    for film in FILMS:
+        if film in u1 and film in u2:
+            diff = u1[film] - u2[film]
+            weighted_diff = weights[film] * diff ** 2
+            total += weighted_diff
+            print(f"{film}: u1={u1[film]}, u2={u2[film]}, diff={diff}, weighted_diff={weighted_diff}")
+    return total
+
+def max_distance(vector: list[int] = None) -> int:
+    """
+    Computes maximum distance between two users for a given collection of weights.
     """
     user_zero = {film: 0 for film in FILMS}
     user_max = {film: 10 for film in FILMS}
-    return distance(user_zero, user_max, weights)
+    return distance(user_zero, user_max, vector)
 
-def percentage_match(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
+def percentage_match(u1: dict, u2: dict, vector: list[int] = None) -> int:
     """
     Computes the percentage match based on the above distance function.
     """
-    m = max_distance(weights)
-    return floor((m-distance(u1,u2,weights))/m*100)
+    m = max_distance(vector)
+    if m == 0:
+        return 0
+    d = distance(u1, u2, vector)
+    print(f"Max distance: {m}, Actual distance: {d}")
+    return floor((m - d) / m * 100)
 
-def is_match(u1: dict, u2: dict, weights: dict=create_weights(), threshold:int=65) -> bool:
+def is_match(u1: dict, u2: dict, vector: list[int] = None, threshold: int = 65) -> bool:
     """
-    threshold is the cutoff for determining if a pair of users should be
-    matched.
+    Determines if a pair of users should be matched based on the threshold.
     """
-    if percentage_match(u1,u2,weights) >= threshold:
-        return True
-    return False
+    return percentage_match(u1, u2, vector) >= threshold

@@ -1,29 +1,31 @@
-import sys
-from django.http import HttpResponse
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
 from .models import FilmResults
-from django.views.decorators.csrf import csrf_exempt
-import json
+from .serializers import FilmResultsSerializer
 
-
-# I don't know how to write views so I will plan them semantically
-# in particular, maybe they should be classes
-
-# How we access things from the request object is maybe not correct.
-# Similar for the film_results.
-# I may have also used kwargs poorly.
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def survey_results_create(request):
     """
-    This should take the answers for the questionaire/survey, add the 
+    Create survey results for the authenticated user.
     """
-    print(request.__dict__, file=sys.stderr)
-    user = request.user
-    film_results = request.movie1
-    user_film_results = FilmResults(user=user, **film_results)
-    user_film_results.save()
+    serializer = FilmResultsSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def survey_results_display(request):
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def survey_results_display(request, user_id):
     """
-    Fetch survey results for specified user
+    Display survey results for the specified user.
     """
-    pass
-    # return 
+    try:
+        results = FilmResults.objects.get(user_id=user_id)
+        serializer = FilmResultsSerializer(results)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except FilmResults.DoesNotExist:
+        return Response({'error': 'Results not found'}, status=status.HTTP_404_NOT_FOUND)
