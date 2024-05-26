@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
 }
 
 .App-link {
@@ -42,18 +42,20 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
+  background-image: url("./assets/wookie-woo-wallpaper.jpg");
+  background-color: var(--secondary-color);
 }
 .Main-view-container {
-  padding: 10px;
+  padding: 100px;
   margin: 20px;
-  border: 1px solid rgb(50, 50, 50);
+  border: 2px solid var(--tertiary-color);
   flex-grow: 1;
   overflow-y: auto;
 }
 .Nav-bar-container {
   padding: 10px;
   margin: 20px;
-  border: 1px solid rgb(50, 50, 50);
+  border: 2px solid var(--tertiary-color);
   height: auto;
   margin-right: 0px;
   width: 20vh;
@@ -66,7 +68,8 @@
     flex-direction: column;
   }
   .Main-view-container {
-    padding: 10px;
+    padding: 20px;
+    padding-top: 100px;
     margin: 20px;
   }
   .Nav-bar-container {
@@ -75,5 +78,11 @@
     margin-bottom: 0px;
     width: auto;
     height: 10vh;
+    border: none;
   }
+}
+
+p, h1, li {
+  color: var(--tertiary-color);
+  font-family: Ubuntu, sans-serif;
 }

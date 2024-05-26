@@ -13,21 +13,53 @@ ul {
 }
 
 .NavBarDirection {
+    margin-top: 150px;
     text-align: right;
     flex-direction: column;
 }
+@media (max-width: 768px) {
+    .NavBarDirection {
+        margin-top: 0px;
+    }
+}
 
-.NavBarLogo, .NavBarButton {
+.CollapseButton {
+    border: 3px solid var(--primary-color);
+    border-radius: 0px;
+    transform: skew(-3deg);
+}
+
+.NavBarButton {
     width: 100px;
     height: 60px;
     padding: 10px;
     margin: auto;
     text-align: center;
-    color: rgb(50, 50, 50);
-    background-color: white;
+    color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     text-decoration: none;
-    border: 2px solid rgb(50, 50, 50);
+    border: 2px solid var(--tertiary-color);
     display: inline-block;
+    transform: skew(-3deg);
+}
+.NavBarButton:hover, .Active {
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+}
+
+.NavBarLogo {
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    height: auto;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 @media (max-width: 768px) {
     .NavBarLogo {

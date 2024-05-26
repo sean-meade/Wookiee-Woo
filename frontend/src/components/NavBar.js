@@ -1,42 +1,52 @@
-import React, { useState } from "react";
+
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-//import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
-// authentication import goes here
+import '../global.css';
+import logo from'../assets/wookie-doo-logo.png';
+import AuthContext from '../auth/authcontext';
+
 
 const NavBar = () => {
-    // authentication as useState is temporary:
-    // eslint-disable-next-line
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
-    const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const { user, logout } = useContext(AuthContext);
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+// handleLogout was brought from main branch while resolving conflicts 
+    const handleLogout = () => {
+        logout();
+        setExpanded(false);
+  };
+  
     const authenticatedOptions = (<>
         <NavLink
         to="/profiles"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             My profile
         </NavLink><br/><br/>
-        <NavLink
-        to="/sign-out"
+        <div
+        onClick={handleLogout}
         className={styles.NavBarButton}
         >
             Sign out
-        </NavLink><br/><br/>
+        </div><br/><br/>
     </>)
 
     const unauthenticatedOptions = (<>
         <NavLink
         to="/sign-in"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             Sign in
         </NavLink><br/><br/>
         <NavLink
         to="/sign-up"
         className={styles.NavBarButton}
+        activeClassName={styles.Active}
         >
             Sign up
         </NavLink><br/><br/>
@@ -48,9 +58,12 @@ const NavBar = () => {
         className={styles.LogoToCollapseDirection}
         expand="md"
         >
-            <Navbar.Brand className={styles.NavBarLogo}>Logo</Navbar.Brand>
+            <Navbar.Brand>
+                <img className={styles.NavBarLogo} src={logo} alt="logo"/>
+            </Navbar.Brand>
 
                 <Navbar.Toggle
+                className={styles.CollapseButton}
                 ref={ref}
                 onClick={() => setExpanded(!expanded)}
                 aria-controls="basic-navbar-nav"
@@ -66,16 +79,18 @@ const NavBar = () => {
                         <NavLink
                         to="/profiles"
                         className={styles.NavBarButton}
+                        activeClassName={styles.Active}
                         >
                             profiles
                         </NavLink><br/><br/>
                         <NavLink
                         to="/"
                         className={styles.NavBarButton}
+                        activeClassName={styles.Active}
                         >
                             home
                         </NavLink><br/><br/>
-                        {isAuthenticated ? (authenticatedOptions) : (unauthenticatedOptions)}
+                        {user ? (authenticatedOptions) : (unauthenticatedOptions)}
                         </ul>
                     </Nav>
 

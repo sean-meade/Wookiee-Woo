@@ -44,4 +44,4 @@ npm-debug.log
 .direnv
 .envrc
 .tool-versions
-backend/profiles/migrations/0003_customuser_bio_customuser_facebook_and_more.py
+.gitpod.yml
