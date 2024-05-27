@@ -1,5 +1,5 @@
 from math import floor
-from utils import create_weights, FILMS
+from .utils import create_weights, FILMS
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
@@ -12,13 +12,18 @@ def distance(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
     dictionary that contains the weights necessary to compute the weighted
     sum. adjusting an individual value will scale the importance of that film.
     '''
-    overlap = {film: u1[film] and u2[film] for film in FILMS}
+    overlap = {film: both_exist(u1[film],u2[film]) for film in FILMS}
     sum = 0
     for film, value in overlap.items():
         if value:
             sum += weights[film]*(u1[film]-u2[film])**2
     return sum
 
+# this function addresses the issue of the database not excepting empty strings from the front end.
+def both_exist(a,b) -> bool:
+    if a>0 and b>0:
+        return True
+    return False
 
 def max_distance(weights) -> int:
     """
