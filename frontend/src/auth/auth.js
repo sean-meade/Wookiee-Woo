@@ -5,13 +5,18 @@ const API_URL = process.env.REACT_APP_SITE_BASE_URL;
 axios.defaults.baseURL = API_URL
 
 
-const register = (username, email, password, password2) => {
-  return axios.post(API_URL + 'register/', {
+const register = (username, email, password, password2, token) => {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}` // Example of including an authorization token
+  };
+
+  return axios.post('register/', {
     username,
     email,
     password,
     password2
-  });
+  }, { headers });
 };
 
 const login = (username, password) => {
