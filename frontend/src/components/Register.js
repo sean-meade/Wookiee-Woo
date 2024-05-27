@@ -29,7 +29,7 @@ const Register = () => {
       setToastVariant('success');
       setShowToast(true);
       setTimeout(() => {
-        navigate('/login');
+        navigate('/sign-in');
       }, 3000);
     } catch (error) {
       setToastMessage('Registration failed. Please try again.');
