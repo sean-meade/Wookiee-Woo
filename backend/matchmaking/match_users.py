@@ -76,10 +76,10 @@ def test_mutual_attraction():
     sample_users = [sample_user1,sample_user2,sample_user3]
 
     for user1 in sample_users:
-    for user2 in sample_users:
-        print(f"{user1=}")
-        print(f"{user2=}")
-        print(mutual_attraction(user1,user2))
+        for user2 in sample_users:
+            print(f"{user1=}")
+            print(f"{user2=}")
+            print(mutual_attraction(user1,user2))
 
 
 GENDER_TO_LOOKING_FOR = {
