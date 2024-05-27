@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // React will only accept one module.css style import 
 import styles from '../styles/UnauthenticatedLandingPage.module.css';
-//import styles from '../styles/AuthenticatedLandingPage.module.css';
+import '../global.css';
 
 
 const UnauthorisedLandingPage = () => {
