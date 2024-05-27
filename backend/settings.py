@@ -48,10 +48,10 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = ['https://wookie-woo-a4d53b6d7f27.herokuapp.com/', 'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com/']
+CORS_ALLOWED_ORIGINS = ['https://wookie-woo-a4d53b6d7f27.herokuapp.com', 'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com/', 'https://wookie-woo-a4d53b6d7f27.herokuapp.com/'
+    'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com', 'https://wookie-woo-a4d53b6d7f27.herokuapp.com'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -75,17 +75,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+DATABASES = {
+        'default': env.db(),
     }
-else:
-    DATABASES = {
-            'default': env.db(),
-        }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
