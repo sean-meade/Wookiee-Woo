@@ -7,7 +7,7 @@ from .models import FilmResults
 from ..profiles.models import CustomUser
 from .data import FILMS
 from random import randrange
-from .match_users import is_match
+from .match_users import is_match, percentage_match
 
 
 # I don't know how to write views so I will plan them semantically
@@ -56,14 +56,16 @@ def get_user(request) -> 'CustomUser':
     return CustomUser.objects.filter(username=username)
 
 def compute_user_matches(primary_user)->dict:
-    results = FilmResults.objects.all()
-    primary_result = user_to_results(primary_user).__dict__
+    results = list(FilmResults.objects.all())
+    primary_result = user_to_results(primary_user)
     matches = {}
-    return results
+#    return [result.__dict__ for result in results]
+    
+    #return results[0].__dict__
     for result in results:
-        user_id = result.user.id
         result = result.__dict__
-        matches[user_id] = is_match(result, primary_result)
+        user_id = result['user_id']
+        matches[user_id] = is_match(primary_result,result)
     return matches
 
 
@@ -98,4 +100,4 @@ def default_user(id=2)->'CustomUser':
 def user_to_results(user)-> dict:
     results = list(FilmResults.objects.filter(user=user))[0]
     results=results.__dict__
-    return HttpResponse(results)
+    return results
