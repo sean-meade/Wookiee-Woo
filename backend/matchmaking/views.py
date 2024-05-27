@@ -36,14 +36,6 @@ def survey_results_create(request):
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
 
-@csrf_exempt
-def survey_results_display(request):
-    """
-    Fetch survey results for specified user
-    Is this function necessary or is this already taken care of.
-    """
-    pass
-
 # always wrap this in a try and except block so that the appropriate response is
 def get_user(request) -> 'CustomUser':
     '''
@@ -59,20 +51,11 @@ def compute_user_matches(primary_user)->dict:
     results = list(FilmResults.objects.all())
     primary_result = user_to_results(primary_user)
     matches = {}
-#    return [result.__dict__ for result in results]
-    
-    #return results[0].__dict__
     for result in results:
         result = result.__dict__
         user_id = result['user_id']
         matches[user_id] = is_match(primary_result,result)
     return matches
-
-
-
-
-
-
 
 def populate_results():
     users = list(CustomUser.objects.all())
@@ -86,10 +69,10 @@ def populate_results():
     return string
 
 
-        
-       
-
 def test(request):
+    """
+    returns response for whatever you are working on at route matchmaking/test.
+    """
     user1 = default_user(2)
     matches = compute_user_matches(user1)
     return HttpResponse(str(matches))
