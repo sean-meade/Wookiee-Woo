@@ -60,3 +60,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+    
+class Match(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='matcher')
+    matched_with = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='matchie')

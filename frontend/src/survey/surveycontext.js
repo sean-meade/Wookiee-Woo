@@ -11,8 +11,13 @@ export const SurveyProvider = ({ children }) => {
     return surveyService.survey(films, username);
   };
 
+  // Function to fetch survey results
+  const getMatches = (token, username) => {
+    return surveyService.getMatches(token, username);
+  };
+
   return (
-    <SurveyContext.Provider value={{ survey }}>
+    <SurveyContext.Provider value={{ survey, getMatches }}>
       {children}
     </SurveyContext.Provider>
   );

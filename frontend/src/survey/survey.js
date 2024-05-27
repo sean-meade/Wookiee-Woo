@@ -18,8 +18,19 @@ const survey = (films, username, token) => {
   );
 };
 
+// Function to fetch survey results
+const getMatches = (token, username) => {
+  const URI = 'get_matches/' + username + '/';
+  return axios.get(URI, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  });
+};
+
 const surveyService = {
   survey,
+  getMatches,
 };
 
 export default surveyService;

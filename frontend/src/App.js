@@ -11,6 +11,7 @@ import PageNotFound from './pages/PageNotFound';
 import UnauthenticatedLandingPage from './pages/UnauthenticatedLandingPage';
 import UserDetail from './components/UserDetail';
 import Login from './components/Login';
+import Matches from './components/Matches';
 import Register from './components/Register';
 import { AuthProvider } from './auth/authcontext';
 import SurveyProviderWrapper from './providers/SurveyProviderWrapper';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
         <Route path="/landing" element={<AuthenticatedLandingPage />} />
+        <Route path="/matches" element={<Matches />} />
         <Route path="/survey" element={<SurveyProviderWrapper />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
