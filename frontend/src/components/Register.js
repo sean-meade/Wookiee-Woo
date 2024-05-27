@@ -3,6 +3,8 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../auth/authcontext';
 import { Form, Button, Container, Row, Col, Toast, ToastContainer } from 'react-bootstrap';
+import styles from "../styles/Register.module.css";
+import "../global.css";
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -39,54 +41,56 @@ const Register = () => {
     }
   };
 
-  return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md="6">
-          <h1 className="text-center">Register</h1>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter username"
-              />
-            </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email"
-              />
-            </Form.Group>
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-              />
-            </Form.Group>
-            <Form.Group controlId="formPassword2">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={password2}
-                onChange={(e) => setPassword2(e.target.value)}
-                placeholder="Confirm password"
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit" className="mt-3">
-              Register
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+  return (<>
+    <div className={styles.RegisterContainer}>
+      <h1 className={styles.Header}>Register</h1>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formUsername">
+          <Form.Label className={styles.FormLabel}></Form.Label>
+          <Form.Control
+            className={styles.FormControl}
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter username"
+          />
+        </Form.Group>
+        <Form.Group controlId="formEmail">
+          <Form.Label className={styles.FormLabel}></Form.Label>
+          <Form.Control
+            className={styles.FormControl}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email"
+          />
+        </Form.Group>
+        <Form.Group controlId="formPassword">
+          <Form.Label className={styles.FormLabel}></Form.Label>
+          <Form.Control
+            className={styles.FormControl}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+          />
+        </Form.Group>
+        <Form.Group controlId="formPassword2">
+          <Form.Label className={styles.FormLabel}></Form.Label>
+          <Form.Control
+            className={styles.FormControl}
+            type="password"
+            value={password2}
+            onChange={(e) => setPassword2(e.target.value)}
+            placeholder="Confirm password"
+          />
+        </Form.Group>
+        <button type="submit" className={styles.Button}>
+          Register
+        </button>
+      </Form>
+    </div>
+    <div>
       <ToastContainer position="top-end" className="p-3">
         <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
           <Toast.Header>
@@ -97,8 +101,8 @@ const Register = () => {
           </Toast.Body>
         </Toast>
       </ToastContainer>
-    </Container>
-  );
+    </div>
+    </>);
 };
 
 export default Register;

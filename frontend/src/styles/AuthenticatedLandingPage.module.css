@@ -11,16 +11,20 @@
 
 .profileOverview,
 .suggestions{
-    background-color: #243145 ;
-    border: #ecc6c6 1px solid;
+    background-color: var(--secondary-color) ;
+    border: 1px solid var( --tertiary-color);
     border-radius: 5px; 
     height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .cardTitle {
-    color: #cf4f50;
+    color: var(--primary-color);
+
 }
 
 .cardText {
-    color: #ecc6c6 ;
+    color: var(--tertiary-color) ;
+
 }
