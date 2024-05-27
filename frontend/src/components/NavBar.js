@@ -34,6 +34,13 @@ const NavBar = () => {
         >
             Survey
         </NavLink><br/><br/>
+        <NavLink
+        to="/matches"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Matches
+        </NavLink><br/><br/>
         <div
         className={styles.NavBarButton}
         onClick={handleLogout}
