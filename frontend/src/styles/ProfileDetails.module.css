@@ -1,0 +1,16 @@
+.ProfileDetailsContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    border: 2px solid var(--primary-color);
+    align-items: center;
+    width: 50%;
+}
+@media (max-width: 1200px) {
+    .ProfileDetailsContainer {
+        padding: 50px;
+        border: none;
+        align-items: center;
+        width: 100%;
+    }
+}

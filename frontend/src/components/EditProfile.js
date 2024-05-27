@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../auth/authcontext';
 import { Form, Button, Container, Row, Col, Toast, ToastContainer } from 'react-bootstrap';
 import authService from '../auth/auth';
+import styles from "../styles/EditProfile.module.css";
+import "../global.css";
 
 const EditProfile = () => {
   const [username, setUsername] = useState('');
@@ -51,32 +53,35 @@ const EditProfile = () => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md="6">
-          <h1 className="text-center">Edit Profile</h1>
+    <Container className={styles.EditProfileContainer}>
+          <h1 className={styles.Header}>Edit Profile</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
-              <Form.Label>Username</Form.Label>
+            <Form.Label className={styles.FormLabel}>Username</Form.Label>
               <Form.Control
+                className={styles.FormControl}
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter username"
               />
             </Form.Group>
+            <hr/>
             <Form.Group controlId="formEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label className={styles.FormLabel}>Email address</Form.Label>
               <Form.Control
+                className={styles.FormControl}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
               />
             </Form.Group>
+            <hr/>
             <Form.Group controlId="formBio">
-              <Form.Label>Bio</Form.Label>
+              <Form.Label className={styles.FormLabel}>Bio</Form.Label>
               <Form.Control
+                className={styles.FormControl}
                 as="textarea"
                 rows={3}
                 value={bio}
@@ -84,12 +89,10 @@ const EditProfile = () => {
                 placeholder="Enter bio"
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="mt-3">
+            <button type="submit" className={styles.Button}>
               Update Profile
-            </Button>
+            </button>
           </Form>
-        </Col>
-      </Row>
       <ToastContainer position="top-end" className="p-3">
         <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
           <Toast.Header>
