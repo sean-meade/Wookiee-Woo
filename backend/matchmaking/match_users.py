@@ -1,5 +1,5 @@
 from math import floor
-from utils import create_weights, FILMS, invert_dict
+from .utils import create_weights, FILMS, invert_dict
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
