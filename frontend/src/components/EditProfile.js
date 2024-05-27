@@ -43,7 +43,7 @@ const EditProfile = () => {
       setShowToast(true);
       setTimeout(() => {
         navigate('/'); 
-      }, 3000);
+      }, 1500);
     } catch (error) {
       setToastMessage('Failed to update profile. Please try again.');
       setToastVariant('danger');

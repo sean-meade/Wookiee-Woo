@@ -27,6 +27,20 @@ const NavBar = () => {
         >
             My profile
         </NavLink><br/><br/>
+        <NavLink
+        to="/survey"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Survey
+        </NavLink><br/><br/>
+        <NavLink
+        to="/matches"
+        className={styles.NavBarButton}
+        activeClassName={styles.Active}
+        >
+            Matches
+        </NavLink><br/><br/>
         <div
         className={styles.NavBarButton}
         onClick={handleLogout}

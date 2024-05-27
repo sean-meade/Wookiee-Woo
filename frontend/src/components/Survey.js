@@ -61,7 +61,7 @@ const Survey = () => {
         return acc;
       }, {});
       await survey(formattedFilms, username, token);
-      // navigate('/');
+      navigate('/matches');
     } catch (error) {
       console.error('Survey submission failed', error);
     }
