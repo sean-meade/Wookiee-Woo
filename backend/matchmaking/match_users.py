@@ -63,9 +63,20 @@ TRANSLATE ={
 }
 }
 
-sample_user1={"gender":"Man","looking_for":'Women'}
-sample_user2={"gender":"Woman","looking_for":'Men'}
-sample_user3={"gender":"Woman","looking_for":'Women'}
+# This is test for the below function in case anyone wants to see how it works.
+def test_mutual_attraction():
+
+    sample_user1={"gender":"Man","looking_for":'Women'}
+    sample_user2={"gender":"Woman","looking_for":'Men'}
+    sample_user3={"gender":"Woman","looking_for":'Women'}
+    sample_users = [sample_user1,sample_user2,sample_user3]
+
+    for user1 in sample_users:
+    for user2 in sample_users:
+        print(f"{user1=}")
+        print(f"{user2=}")
+        print(mutual_attraction(user1,user2))
+
 
 GENDER_TO_LOOKING_FOR = {
     "Woman":{"Women","Men and Women", "All/Any"},
@@ -82,6 +93,9 @@ def attracted_to(user1:dict,user2:dict) -> bool:
     u1_looking_for = LOOKING_FOR_TO_GENDER[user1['looking_for']]
     if user2['gender'] in u1_looking_for:
         return True
+    return False
 
 def mutual_attraction(user1:dict, user2:dict) -> bool:
     return attracted_to(user1,user2) and attracted_to(user2,user1)
+
+
