@@ -3,12 +3,10 @@ from django.http import HttpResponse, JsonResponse
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .models import FilmResults
 from ..profiles.models import CustomUser
 from .data import FILMS
 from random import randrange
 from .match_users import is_match, percentage_match
-
 
 # I don't know how to write views so I will plan them semantically
 # in particular, maybe they should be classes

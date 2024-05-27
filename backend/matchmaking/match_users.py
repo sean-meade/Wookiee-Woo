@@ -1,5 +1,5 @@
 from math import floor
-from .utils import create_weights, FILMS
+from utils import create_weights, FILMS, invert_dict
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
@@ -46,4 +46,59 @@ def is_match(u1: dict, u2: dict, weights: dict=create_weights(), threshold:int=6
     threshold is the cutoff for determining if a pair of users should be
     matched.
     """
+
     return percentage_match(u1,u2,weights) >= threshold
+
+TRANSLATE ={
+'GENDERS':{
+    0: "Woman",
+    1: "Nonbinary",
+    2: "Genderfluid",
+    3: "Man",
+    4: "Prefer not to answer",
+    5: "Other",
+},
+'LOOKING_FOR':{
+    0: "Women",
+    1: "Men and Women",
+    2: "Neither",
+    3: "All/Any",
+    4: "Men",
+}
+}
+
+# This is test for the below function in case anyone wants to see how it works.
+def test_mutual_attraction():
+
+    sample_user1={"gender":"Man","looking_for":'Women'}
+    sample_user2={"gender":"Woman","looking_for":'Men'}
+    sample_user3={"gender":"Woman","looking_for":'Women'}
+    sample_users = [sample_user1,sample_user2,sample_user3]
+
+    for user1 in sample_users:
+    for user2 in sample_users:
+        print(f"{user1=}")
+        print(f"{user2=}")
+        print(mutual_attraction(user1,user2))
+
+
+GENDER_TO_LOOKING_FOR = {
+    "Woman":{"Women","Men and Women", "All/Any"},
+    "Nonbinary":{"All/Any"},
+    "Genderfluid":{"All/Any", "Men and Women"},
+    "Man":{"Men and Women", "All/Any","Men"},
+    "Prefer not to answer":{"All/Any"},
+    "Other":{"All/Any"}
+}
+
+LOOKING_FOR_TO_GENDER = invert_dict(GENDER_TO_LOOKING_FOR)
+
+def attracted_to(user1:dict,user2:dict) -> bool:
+    u1_looking_for = LOOKING_FOR_TO_GENDER[user1['looking_for']]
+    if user2['gender'] in u1_looking_for:
+        return True
+    return False
+
+def mutual_attraction(user1:dict, user2:dict) -> bool:
+    return attracted_to(user1,user2) and attracted_to(user2,user1)
+
