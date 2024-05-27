@@ -4,12 +4,11 @@ const API_URL = process.env.REACT_APP_SURVEY_BASE_URL;
 
 axios.defaults.baseURL = API_URL;
 
-const survey = (movie1, movie2, username, token) => {
+const survey = (films, username, token) => {
   return axios.post('survey-results-create/', 
     {
-      a_new_hope: movie1,
-      empire_strikes_back: movie2,
-      username: username
+      films,
+      username
     },
     {
       headers: {
@@ -19,8 +18,19 @@ const survey = (movie1, movie2, username, token) => {
   );
 };
 
+// Function to fetch survey results
+const getMatches = (token, username) => {
+  const URI = 'get_matches/' + username + '/';
+  return axios.get(URI, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  });
+};
+
 const surveyService = {
   survey,
+  getMatches,
 };
 
 export default surveyService;

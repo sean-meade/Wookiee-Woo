@@ -7,12 +7,17 @@ const SurveyContext = createContext();
 export const SurveyProvider = ({ children }) => {
 
 
-  const survey = (movie1, movie2, username) => {
-    return surveyService.survey(movie1, movie2, username);
+  const survey = (films, username) => {
+    return surveyService.survey(films, username);
+  };
+
+  // Function to fetch survey results
+  const getMatches = (token, username) => {
+    return surveyService.getMatches(token, username);
   };
 
   return (
-    <SurveyContext.Provider value={{ survey }}>
+    <SurveyContext.Provider value={{ survey, getMatches }}>
       {children}
     </SurveyContext.Provider>
   );

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import styles from "../styles/NavBar.module.css";
 import '../global.css';
-import logo from'../assets/wookie-woo-logo.png';
+import logo from '../assets/wookie-woo-logo.png';
 import AuthContext from '../auth/authcontext';
 
 
