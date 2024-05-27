@@ -281,4 +281,111 @@ In designing the color palette for this project, a tertiary color wheel analysis
 - Heroku
   - [Documentation](https://devcenter.heroku.com/)
 
+## Copyright links
+- **Font:**
+
+Wookie woo star wars font:
+
+<a href="https://www.textstudio.com/">Font generator</a>
+https://www.textstudio.com/logo/111/starwars
+
+- **Music:**
+
+Star wars main theme (no copyright)
+
+https://www.youtube.com/watch?v=_vsoDqyyYWs
+
+Background music:
+
+https://pixabay.com/music/solo-piano-watching-the-stars-background-music-for-video-8756/
+
+- **Sound effects:**
+
+https://pixabay.com/sound-effects/lightsaber-clash-88733/
+
+https://pixabay.com/sound-effects/saber-hummingwav-14651/
+
+
+- **Transitions:**
+
+https://www.vecteezy.com/video/29227655-cherry-blossom-falling-is-alpha-motion-footage-for-seasonal-films-and-
+
+<a href="https://www.vecteezy.com/free-videos/pink">Pink Stock Videos by Vecteezy</a>
+
+- **Effects:**
+
+Lightsaber:
+https://footagecrate.com/video-effects/footagecrate-lasersword-blue
+
+https://footagecrate.com/video-effects/footagecrate-lasersword-damaged-red
+
+- **Video clips:**
+
+Anakin and Padme:
+
+https://www.youtube.com/watch?v=juFzdkg4Rvw
+
+Chewbacca moments:
+
+https://www.youtube.com/watch?v=0W4xnv8HZjM
+
+Kylo Ren rage scene:
+
+https://www.youtube.com/watch?v=grtJjUmkJmk
+
+Woman smiling:
+
+https://www.pexels.com/video/a-happy-woman-with-a-big-smile-6706926/
+
+
+- **Images:**
+
+Stars background:
+
+https://www.pexels.com/photo/starry-sky-998641/
+
+Plo Koon:
+
+https://nl.pinterest.com/pin/663577326325061405/
+
+Leia and Han:
+
+https://www.starwars.com/news/han-and-leia-why-theyre-perfect-together
+
+AI image of Star wars fans:
+
+hypergeek76_Star_wars_fans_falling_in_love_sci_fi_scene_c8a50842-7c14-4788-be4c-c3fea7cb9a72
+
+Kylo Star Wars wallpaer:
+
+https://wallpapercave.com/w/wp1884717
+
+Storm trooper wallpaper:
+
+https://wallpapercave.com/w/wp3390444
+
+BB8 wallpaper:
+
+https://wallpapercave.com/w/wp3614492
+
+Star Wars designed wallpaper:
+
+https://wallpapercave.com/w/wp2608227
+
+Kylo Ren wallpaper:
+
+https://wallpapercave.com/w/wp3614507
+
+Star Wars mask wallpaper:
+
+https://wallpapercave.com/w/wp3614510
+
+Spaceship wallpaper:
+
+https://wallpapercave.com/w/wp3614516
+
+Star Wars Eclipse wallpaper:
+
+https://www.uhdpaper.com/2021/10/star-wars-eclipse-lightsabers-4k-7931e.html?m=0#google_vignette
+
 [Go To The Top](#table-of-contents)
