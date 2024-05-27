@@ -30,35 +30,34 @@ const Survey = () => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md="6">
-          <h1 className="text-center">Survey</h1>
+    <Container className={styles.SurveyContainer}>
+          <h1 className={styles.Header}>Survey</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formMovie1">
-              <Form.Label>Movie One</Form.Label>
+            <Form.Label className={styles.FormLabel}>Movie 1</Form.Label>
               <Form.Control
+                className={styles.FormControl}
                 type="number"
                 value={movie1}
                 onChange={(e) => setMovie1(e.target.value)}
-                placeholder="Enter Rating Movie1"
+                placeholder="Enter Rating Movie 1"
               />
             </Form.Group>
+            <hr/>
             <Form.Group controlId="formMovie2">
-              <Form.Label>Movie Two</Form.Label>
+            <Form.Label className={styles.FormLabel}>Movie 2</Form.Label>
               <Form.Control
+                className={styles.FormControl}
                 type="number"
                 value={movie2}
                 onChange={(e) => setMovie2(e.target.value)}
-                placeholder="Enter Rating Movie2"
+                placeholder="Enter Rating Movie 2"
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="mt-3">
+            <button type="submit" className={styles.Button}>
               Submit
-            </Button>
+            </button>
           </Form>
-        </Col>
-      </Row>
     </Container>
   );
 };
