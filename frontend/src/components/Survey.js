@@ -5,6 +5,8 @@ import Ranking from './Ranking';
 import AuthContext from "../auth/authcontext";
 import authService from '../auth/auth';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import styles from "../styles/Survey.module.css";
+import "../App.test";
 
 const Survey = () => {
   const [movie1, setMovie1] = useState('');
@@ -28,7 +30,7 @@ const Survey = () => {
   };
 
   return (
-    <Container>
+    <Container className={styles.Test}>
       <Row className="justify-content-md-center">
         <Col md="6">
           <h1 className="text-center">Survey</h1>
