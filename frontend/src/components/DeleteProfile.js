@@ -3,6 +3,7 @@ import { Button, Toast, ToastContainer } from 'react-bootstrap';
 import AuthContext from '../auth/authcontext';
 import authService from '../auth/auth';
 import { useNavigate } from 'react-router-dom';
+import styles from "../styles/DeleteProfile.module.css";
 
 const DeleteProfile = () => {
   const { token, logout } = useContext(AuthContext);
@@ -31,9 +32,9 @@ const DeleteProfile = () => {
 
   return (
     <>
-      <Button variant="danger" onClick={handleDelete} className="mt-3">
+      <button onClick={handleDelete} className={styles.DeleteButton}>
         Delete Profile
-      </Button>
+      </button>
       <ToastContainer position="top-end" className="p-3">
         <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
           <Toast.Header>

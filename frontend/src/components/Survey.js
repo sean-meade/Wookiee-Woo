@@ -4,6 +4,8 @@ import SurveyContext from '../survey/surveycontext';
 import AuthContext from "../auth/authcontext";
 import authService from '../auth/auth';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import styles from "../styles/Survey.module.css";
+import "../global.css";
 
 const Survey = () => {
   const initialMovieState = [
@@ -66,10 +68,8 @@ const Survey = () => {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md="6">
-          <h1 className="text-center">Survey</h1>
+    <Container className={styles.SurveyContainer}>
+          <h1 className={styles.Header}>Survey</h1>
           <Form onSubmit={handleSubmit}>
             {films.map((movie, index) => (
               <Form.Group controlId={`formMovie${index + 1}`} key={index}>
@@ -86,8 +86,6 @@ const Survey = () => {
               Submit
             </Button>
           </Form>
-        </Col>
-      </Row>
     </Container>
   );
 };
