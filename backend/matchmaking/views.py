@@ -129,6 +129,15 @@ def default_user(id=2)->'CustomUser':
     return list(CustomUser.objects.filter(id=id))[0]
 
 def user_to_results(user)-> dict:
-    results = list(FilmResults.objects.filter(user=user))[0]
-    results=results.__dict__
-    return results
+    try:
+        results = FilmResults.objects.get(user=user)
+        results=results.__dict__
+        print(results)
+        return results
+    except:
+        return "There are no other users yet"
+    
+    
+    # results = list(FilmResults.objects.filter(user=user))[0]
+    # results=results.__dict__
+    # return results
