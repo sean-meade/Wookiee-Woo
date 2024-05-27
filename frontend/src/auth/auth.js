@@ -5,11 +5,12 @@ const API_URL = process.env.REACT_APP_SITE_BASE_URL;
 axios.defaults.baseURL = API_URL
 
 
-const register = (username, email, password) => {
+const register = (username, email, password, password2) => {
   return axios.post('register/', {
     username,
     email,
-    password
+    password,
+    password2
   });
 };
 
