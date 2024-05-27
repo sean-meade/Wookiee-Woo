@@ -8,6 +8,7 @@ environ.Env.read_env()  # Read .env file
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 SECRET_KEY = env('SECRET_KEY', default='your-default-secret-key')
 JWT_SIGNING_KEY = env('JWT_SIGNING_KEY', default='your-default-jwt-signing-key')  
 
@@ -43,6 +44,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = ['https://wookie-woo-a4d53b6d7f27.herokuapp.com', 'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://wookiewoo-backend-ff1b76fe3790.herokuapp.com', 'https://wookie-woo-a4d53b6d7f27.herokuapp.com'
 ]
 
 ROOT_URLCONF = 'backend.urls'
