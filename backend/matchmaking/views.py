@@ -21,13 +21,22 @@ def survey_results_create(request):
     """
     if request.method == 'POST':
         try:
+            # Grab data from request
             data = json.loads(request.body)
+            # Grab films from data
+            films = data['films']
+            # Grab username from data
             username = data['username']
+            # Find user by filter
             user = CustomUser.objects.filter(username=username)
-            print(user)
-            data['user'] = user[0]
-            del data['username']
-            film_results = FilmResults(**data)
+            # Add user to films
+            films['user'] = user[0]
+            # If movie doesn't have a rating add rating as -1 for distance function later
+            for film, ranking in films.items():
+                if ranking == '':
+                    films[film] = -1
+            # Create and save Filmresults for user
+            film_results = FilmResults(**films)
             film_results.save()
 
             return JsonResponse({'status': 'success', 'data': json.loads(request.body)})
