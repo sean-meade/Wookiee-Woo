@@ -1,5 +1,5 @@
 # These are utility functions for manipulating weights and titles
-from data import FILMS
+from .data import FILMS
 
 
 def normalize_weights(weights: dict, factor: float=1.0) -> dict:

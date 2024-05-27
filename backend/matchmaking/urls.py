@@ -1,7 +1,8 @@
 from django.urls import path
 
-from .views import test_view
+from .views import survey_results_create, test
 
 urlpatterns = [
-    path('matchmaking/', test_view, name='test'),
+    path('test/', test, name="test_name"),
+    path('survey-results-create/', survey_results_create, name='survey_results_create_name'),
 ]

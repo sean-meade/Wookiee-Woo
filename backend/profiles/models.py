@@ -53,6 +53,7 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return str(self.username)
 
+# Sean_5p: I am curious what the point of this class is. (For educational reasons.)
 class UserProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='profile')
     bio = models.TextField(max_length=500, null=True, blank=True)

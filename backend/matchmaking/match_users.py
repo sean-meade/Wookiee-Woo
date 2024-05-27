@@ -1,5 +1,5 @@
 from math import floor
-from utils import create_weights, FILMS
+from .utils import create_weights, FILMS
 
 # This file contains the relevant functions for matching users 
 # based on their SurveyResults
@@ -12,13 +12,18 @@ def distance(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
     dictionary that contains the weights necessary to compute the weighted
     sum. adjusting an individual value will scale the importance of that film.
     '''
-    overlap = {film: u1[film] and u2[film] for film in FILMS}
+    overlap = {film: both_exist(u1[film],u2[film]) for film in FILMS}
     sum = 0
     for film, value in overlap.items():
         if value:
             sum += weights[film]*(u1[film]-u2[film])**2
     return sum
 
+# this function addresses the issue of the database not excepting empty strings from the front end.
+def both_exist(a,b) -> bool:
+    if a>0 and b>0:
+        return True
+    return False
 
 def max_distance(weights) -> int:
     """
@@ -33,7 +38,7 @@ def percentage_match(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
     """
     Computes the percentage match based on the above distance function.
     """
-    m = max_distance(weights)
+    m = max(max_distance(weights),1)
     return floor((m-distance(u1,u2,weights))/m*100)
 
 def is_match(u1: dict, u2: dict, weights: dict=create_weights(), threshold:int=65) -> bool:
@@ -41,6 +46,4 @@ def is_match(u1: dict, u2: dict, weights: dict=create_weights(), threshold:int=6
     threshold is the cutoff for determining if a pair of users should be
     matched.
     """
-    if percentage_match(u1,u2,weights) >= threshold:
-        return True
-    return False
+    return percentage_match(u1,u2,weights) >= threshold

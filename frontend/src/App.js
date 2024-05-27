@@ -13,6 +13,7 @@ import UserDetail from './components/UserDetail';
 import Login from './components/Login';
 import Register from './components/Register';
 import { AuthProvider } from './auth/authcontext';
+import SurveyProviderWrapper from './providers/SurveyProviderWrapper';
 import Home from './components/Home';
 import StarWarsSurvey from './pages/MatchMakingPage/MatchMakingPage';
 import AuthenticatedLandingPage from './pages/AuthenticatedLandingPage';
@@ -31,12 +32,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<p>Landing page</p>} />
         <Route path="/landing" element={<AuthenticatedLandingPage />} />
+        <Route path="/survey" element={<SurveyProviderWrapper />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/sign-out" element={<p>Sign out page</p>} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/profiles/:id" element={<ProfileDetails />} />
-        <Route path="/survey/" element={<StarWarsSurvey />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
         </div>
