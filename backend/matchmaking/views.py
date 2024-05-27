@@ -1,12 +1,14 @@
 import sys
-import sys
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
 import json
-from django.http import JsonResponse
 from .models import FilmResults
 from ..profiles.models import CustomUser
+from .data import FILMS
+from random import randrange
+from .match_users import is_match, percentage_match
+
 
 # I don't know how to write views so I will plan them semantically
 # in particular, maybe they should be classes
@@ -38,16 +40,56 @@ def survey_results_create(request):
             # Create and save Filmresults for user
             film_results = FilmResults(**films)
             film_results.save()
-
             return JsonResponse({'status': 'success', 'data': json.loads(request.body)})
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
 
+# always wrap this in a try and except block so that the appropriate response is
+def get_user(request) -> 'CustomUser':
+    '''
+    Always wrap this function in a try except with the following except block:
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+    '''
+    data = json.loads(request.body)
+    username = data['username']
+    return CustomUser.objects.filter(username=username)
 
-def survey_results_display(request):
+def compute_user_matches(primary_user)->dict:
+    results = list(FilmResults.objects.all())
+    primary_result = user_to_results(primary_user)
+    matches = {}
+    for result in results:
+        result = result.__dict__
+        user_id = result['user_id']
+        matches[user_id] = is_match(primary_result,result)
+    return matches
+
+def populate_results():
+    users = list(CustomUser.objects.all())
+    string = ''
+    for user in users:
+        rand_ratings = {film:randrange(10)+1 for film in FILMS}
+        rand_ratings['user']=user
+        film_results = FilmResults(**rand_ratings)
+        film_results.save()
+        string+=user.username+'\n\n'+str(film_results.__dict__)+'\n\n\n'
+    return string
+
+
+def test(request):
     """
-    Fetch survey results for specified user
+    returns response for whatever you are working on at route matchmaking/test.
     """
-    pass
-    # return 
+    user1 = default_user(2)
+    matches = compute_user_matches(user1)
+    return HttpResponse(str(matches))
+
+def default_user(id=2)->'CustomUser':
+    return list(CustomUser.objects.filter(id=id))[0]
+
+def user_to_results(user)-> dict:
+    results = list(FilmResults.objects.filter(user=user))[0]
+    results=results.__dict__
+    return results
