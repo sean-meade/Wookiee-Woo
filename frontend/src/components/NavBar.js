@@ -91,6 +91,14 @@ const NavBar = () => {
                         >
                             home
                         </NavLink><br/><br/>
+                        <NavLink
+                        to="/about us"
+                        className={styles.NavBarButton}
+                        activeClassName={styles.Active}
+                        >
+                            about us
+                        </NavLink><br/><br/>
+
                         {user ? (authenticatedOptions) : (unauthenticatedOptions)}
                         </ul>
                     </Nav>
