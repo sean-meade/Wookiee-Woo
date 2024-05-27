@@ -299,9 +299,14 @@ Background music:
 
 https://pixabay.com/music/solo-piano-watching-the-stars-background-music-for-video-8756/
 
+Future Royalty - The best:
+
+https://www.youtube.com/watch?v=FS4Jy5MZuIE
+
 - **Sound effects:**
 
 https://pixabay.com/sound-effects/lightsaber-clash-88733/
+
 
 https://pixabay.com/sound-effects/saber-hummingwav-14651/
 
@@ -315,6 +320,7 @@ https://www.vecteezy.com/video/29227655-cherry-blossom-falling-is-alpha-motion-f
 - **Effects:**
 
 Lightsaber:
+
 https://footagecrate.com/video-effects/footagecrate-lasersword-blue
 
 https://footagecrate.com/video-effects/footagecrate-lasersword-damaged-red
