@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+// React will only accept one module.css style import 
 import styles from '../styles/UnauthenticatedLandingPage.module.css';
-import styles from '../styles/AuthenticatedLandingPage.module.css';
-
+// React can accept multiple vanilla css import
+import '../global.css';
 
 
 const UnauthorisedLandingPage = () => {
@@ -13,7 +13,7 @@ const UnauthorisedLandingPage = () => {
 
       <div className={styles.landingPageContainer}>
         <div className={styles.landingPageContent}>
-          <h1>Welcome Wookie Woo</h1>
+          <h1>Welcome to<br/> Wookie Woo</h1>
           <p>Where you find your perfect match in a galaxy of singles!</p>
           <div className={styles.landingPageVideo}> // video placeholder
           </div>
