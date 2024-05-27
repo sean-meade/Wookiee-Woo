@@ -41,6 +41,10 @@ def survey_results_create(request):
                 if ranking == '':
                     films[film] = -1
 
+            # Create and save Filmresults for user
+            film_results = FilmResults(**films)
+            film_results.save()
+
             matches = compute_user_matches(user)
             for match in matches.keys():
                 user_to_match = get_object_or_404(CustomUser, id=match)
@@ -52,9 +56,7 @@ def survey_results_create(request):
                         # Create match
                         Match.objects.get_or_create(user=user_to_match, matched_with=user)
 
-            # Create and save Filmresults for user
-            film_results = FilmResults(**films)
-            film_results.save()
+            
             return JsonResponse({'status': 'success', 'data': json.loads(request.body)})
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
@@ -129,15 +131,8 @@ def default_user(id=2)->'CustomUser':
     return list(CustomUser.objects.filter(id=id))[0]
 
 def user_to_results(user)-> dict:
-    try:
-        results = FilmResults.objects.get(user=user)
-        results=results.__dict__
-        print(results)
-        return results
-    except:
-        return "There are no other users yet"
-    
-    
-    # results = list(FilmResults.objects.filter(user=user))[0]
-    # results=results.__dict__
-    # return results
+
+    results = FilmResults.objects.get(user=user)
+    results=results.__dict__
+    print(results)
+    return results

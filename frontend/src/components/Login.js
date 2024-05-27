@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(username, password);
-      navigate('/');
+      navigate('/survey');
     } catch (error) {
       console.error('Login failed', error);
     }
