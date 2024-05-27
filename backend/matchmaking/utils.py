@@ -41,10 +41,20 @@ def invert_dict(sample:dict) -> dict:
     Returns a dict with key:value where key in sample[val]
     for all val in value.
     """
-    keys = sample.values()
+    keys_sets = sample.values()
+    keys=set()
+    for key_set in keys_sets:
+        for key in key_set:
+            keys.add(key)
+    #print(keys)
+    #input()
     inverse = defaultdict(set)
     for key in keys:
+        #print(f"{key=}")
         for old_key in sample.keys():
+         #   print(f"{old_key=},{key=}")
+          #  print(sample[old_key])
+           # input()
             if key in sample[old_key]:
                 inverse[key].add(old_key)
     return inverse

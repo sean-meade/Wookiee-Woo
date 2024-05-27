@@ -63,6 +63,10 @@ TRANSLATE ={
 }
 }
 
+sample_user1={"gender":"Man","looking_for":'Women'}
+sample_user2={"gender":"Woman","looking_for":'Men'}
+sample_user3={"gender":"Woman","looking_for":'Women'}
+
 GENDER_TO_LOOKING_FOR = {
     "Woman":{"Women","Men and Women", "All/Any"},
     "Nonbinary":{"All/Any"},
@@ -72,13 +76,12 @@ GENDER_TO_LOOKING_FOR = {
     "Other":{"All/Any"}
 }
 
+LOOKING_FOR_TO_GENDER = invert_dict(GENDER_TO_LOOKING_FOR)
 
-LOOKING_FOR_TO_GENDER = {
-    "Women":{"Woman"},
-    "Men and Women":{"Woman","Man","Genderfluid"},
-    "All/Any":{}
-}
-'''
 def attracted_to(user1:dict,user2:dict) -> bool:
-    
-    pass'''
+    u1_looking_for = LOOKING_FOR_TO_GENDER[user1['looking_for']]
+    if user2['gender'] in u1_looking_for:
+        return True
+
+def mutual_attraction(user1:dict, user2:dict) -> bool:
+    return attracted_to(user1,user2) and attracted_to(user2,user1)
