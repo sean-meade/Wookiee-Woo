@@ -1,6 +1,6 @@
 # These are utility functions for manipulating weights and titles
 
-from data import FILMS
+from .data import FILMS
 from collections import defaultdict
 
 
