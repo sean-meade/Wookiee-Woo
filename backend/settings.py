@@ -7,6 +7,7 @@ env = environ.Env()
 environ.Env.read_env()  # Read .env file
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+CORS_ORIGIN_ALLOW_ALL = True
 
 SECRET_KEY = env('SECRET_KEY', default='your-default-secret-key')
 JWT_SIGNING_KEY = env('JWT_SIGNING_KEY', default='your-default-jwt-signing-key')  
