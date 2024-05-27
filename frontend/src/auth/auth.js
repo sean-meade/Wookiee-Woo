@@ -6,7 +6,7 @@ axios.defaults.baseURL = API_URL
 
 
 const register = (username, email, password, password2) => {
-  return axios.post('register/', {
+  return axios.post(API_URL + 'register/', {
     username,
     email,
     password,
