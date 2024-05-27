@@ -11,6 +11,7 @@
 - [Color Scheme](#color-scheme)
 - [Team Members](#team-members)
 - [Technologies Used](#technologies-used)
+- [Copyright Links](#copyright-links)
 
 ## User Stories
 
