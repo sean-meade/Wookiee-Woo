@@ -39,7 +39,7 @@
 
 /* App, Main-view, Nav-bar container Media query for large screens (desktop) */
 .App-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   background-image: url("./assets/wookie-woo-wallpaper.jpg");

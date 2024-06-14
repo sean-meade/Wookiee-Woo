@@ -19,9 +19,7 @@ const Matches = () => {
         const parsedArray = JSON.parse(response.data);
         setMatches(parsedArray);
         setLoading(false);
-        setTimeout(() => {
-        navigate('/'); 
-      }, 3000);
+        
       } catch (error) {
         console.error('Error fetching Matches:', error);
         setLoading(false);
