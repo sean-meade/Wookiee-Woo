@@ -17,8 +17,7 @@ def distance(u1: dict, u2: dict, weights: dict=create_weights()) -> int:
     dictionary that contains the weights necessary to compute the weighted
     sum. adjusting an individual value will scale the importance of that film.
     '''
-    print("u1: ", u1)
-    print("u2: ", u2)
+    
     overlap = {film: both_exist(u1[film],u2[film]) for film in FILMS}
     sum = 0
     for film, value in overlap.items():

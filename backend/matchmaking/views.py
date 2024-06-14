@@ -1,16 +1,18 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.core import serializers
+from .serializers import FilmResultsSerializer
 from .models import FilmResults
 from django.views.decorators.csrf import csrf_exempt
 import json
-from .models import FilmResults
 from ..profiles.models import CustomUser, Match
 from .data import FILMS
 from random import randrange
 from .match_users import is_match, percentage_match
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import generics
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 # I don't know how to write views so I will plan them semantically
@@ -19,6 +21,12 @@ from rest_framework.response import Response
 # How we access things from the request object is maybe not correct.
 # Similar for the film_results.
 # I may have also used kwargs poorly.
+
+class FilmResultSubmissionView(generics.CreateAPIView):
+    queryset = FilmResults.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = FilmResultsSerializer
+
 @csrf_exempt
 def survey_results_create(request):
     """
@@ -28,6 +36,7 @@ def survey_results_create(request):
         try:
             # Grab data from request
             data = json.loads(request.body)
+            print(data)
             # Grab films from data
             films = data['films']
             # Grab username from data
@@ -134,5 +143,4 @@ def user_to_results(user)-> dict:
 
     results = FilmResults.objects.get(user=user)
     results=results.__dict__
-    print(results)
     return results

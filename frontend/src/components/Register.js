@@ -30,9 +30,8 @@ const Register = () => {
       setToastMessage('Registration successful! Redirecting to login...');
       setToastVariant('success');
       setShowToast(true);
-      setTimeout(() => {
-        navigate('/sign-in');
-      }, 3000);
+      navigate('/sign-in');
+      
     } catch (error) {
       setToastMessage('Registration failed. Please try again.');
       setToastVariant('danger');

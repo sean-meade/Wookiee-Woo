@@ -53,14 +53,24 @@ const Survey = () => {
     e.preventDefault();
     try {
       const response = await authService.getProfile(token);
-      const { username, email, bio } = response.data;
-      console.log(username);
-
+      console.log(response)
+      const { id } = response.data;
+      
       const formattedFilms = films.reduce((acc, movie) => {
-        acc[formatMovieName(movie.name)] = movie.rating;
+        if (movie.rating == '') {
+          acc[formatMovieName(movie.name)] = 0;
+        } else {
+          acc[formatMovieName(movie.name)] = movie.rating;
+        }
+        
         return acc;
       }, {});
-      await survey(formattedFilms, username, token);
+      const user = {
+        user: id
+      };
+      const payload = {...user, ...formattedFilms}
+
+      await survey(payload);
       navigate('/matches');
     } catch (error) {
       console.error('Survey submission failed', error);

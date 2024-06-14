@@ -1,14 +1,14 @@
 // src/contexts/SurveyContext.js
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import surveyService from './survey';
 
 const SurveyContext = createContext();
 
 export const SurveyProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
-
-  const survey = (films, username) => {
-    return surveyService.survey(films, username);
+  const survey = (films) => {
+    return surveyService.survey(films, token);
   };
 
   // Function to fetch survey results
