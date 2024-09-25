@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import environ
 from datetime import timedelta
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()  # Read .env file
@@ -16,6 +17,7 @@ DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 ALLOWED_HOSTS.append("wookiewoo-backend-ff1b76fe3790.herokuapp.com")
+ALLOWED_HOSTS.append("wookiee-woo-be.onrender.com")
 ALLOWED_HOSTS.append('localhost')
 
 INSTALLED_APPS = [
@@ -75,16 +77,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
+
 DATABASES = {
-        'default': env.db(),
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 AUTH_PASSWORD_VALIDATORS = [
